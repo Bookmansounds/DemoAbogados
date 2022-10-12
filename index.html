@@ -1,1954 +1,703 @@
-<!DOCTYPE html>
-<!-- saved from url=(0115) /lasight/index.html?_x_tr_sl=auto&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=wapp -->
-<html lang="es" data-lt-installed="true" class="translated-ltr"><script>
-    window[Symbol.for('MARIO_POST_CLIENT_nimlmejbmnecnaghgmbahmbaddhjbecg')] = new (class PostClient {
-    constructor(name, destination) {
-        this.name = name;
-        this.destination = destination;
-        this.serverListeners = {};
-        this.bgRequestsListeners = {};
-        this.bgEventsListeners = {};
-        window.addEventListener('message', (message) => {
-            const data = message.data;
-            const isNotForMe = !(data.destination && data.destination === this.name);
-            const hasNotEventProp = !data.event;
-            if (isNotForMe || hasNotEventProp) {
-                return;
-            }
-            if (data.event === 'MARIO_POST_SERVER__BG_RESPONSE') {
-                const response = data.args;
-                if (this.hasBgRequestListener(response.requestId)) {
-                    try {
-                        this.bgRequestsListeners[response.requestId](response.response);
-                    }
-                    catch (e) {
-                        console.log(e);
-                    }
-                    delete this.bgRequestsListeners[response.requestId];
-                }
-            }
-            else if (data.event === 'MARIO_POST_SERVER__BG_EVENT') {
-                const response = data.args;
-                if (this.hasBgEventListener(response.event)) {
-                    try {
-                        this.bgEventsListeners[data.id](response.payload);
-                    }
-                    catch (e) {
-                        console.log(e);
-                    }
-                }
-            }
-            else if (this.hasServerListener(data.event)) {
-                try {
-                    this.serverListeners[data.event](data.args);
-                }
-                catch (e) {
-                    console.log(e);
-                }
-            }
-            else {
-                console.log(`event not handled: ${data.event}`);
-            }
-        });
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <link rel="dns-prefetch" href="//s3.envato.com" />
+<link rel="preload" href="https://public-assets.envato-static.com/assets/generated_sprites/logos-6f8a015ab6d9602102f6c4dde38bf1a128f2647f20b76023c4793c2d3d86e57c.png" as="image" />
+<link rel="preload" href="https://public-assets.envato-static.com/assets/generated_sprites/common-14f8bc60470b39265fe5c01e92035209bd04b91cd7da99d59ca3ccd9de5eac62.png" as="image" />
+
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Lawsight - Law &amp; Lawyer Preview - ThemeForest</title>
+    <meta name="description" content="&amp;lt;p&amp;gt;&amp;lt;a href=&amp;quot; https://themeforest.net/item/lasight-law-wordpress-theme/23442213?s_ra...">
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1" />
+    <meta name="turbo-visit-control" content="reload">
+
+    <link rel="stylesheet" media="all" href="https://public-assets.envato-static.com/assets/market/core/index-189f00fc25020a5b46ecb9c44839d8bf278973f40c29d7fdba6150c269ab8abd.css" />
+    <link rel="stylesheet" media="all" href="https://public-assets.envato-static.com/assets/market/pages/preview/index-701cd44de39ff0d37f7a6131f450d601714d003063f036644d3a46fcf0c98246.css" />
+
+      <link rel="apple-touch-icon-precomposed" type="image/x-icon" href="https://public-assets.envato-static.com/icons/themeforest.net/apple-touch-icon-72x72-precomposed.png" sizes="72x72" />
+  <link rel="apple-touch-icon-precomposed" type="image/x-icon" href="https://public-assets.envato-static.com/icons/themeforest.net/apple-touch-icon-114x114-precomposed.png" sizes="114x114" />
+  <link rel="apple-touch-icon-precomposed" type="image/x-icon" href="https://public-assets.envato-static.com/icons/themeforest.net/apple-touch-icon-144x144-precomposed.png" sizes="144x144" />
+<link rel="apple-touch-icon-precomposed" type="image/x-icon" href="https://public-assets.envato-static.com/icons/themeforest.net/apple-touch-icon-precomposed.png" />
+
+    <script src="https://public-assets.envato-static.com/assets/market/pages/full_screen_preview/index-39fc94f50438714d8467e6c5e21895674c1ed3fb42ecf0bbda67669a448ef91e.js" nonce="uoLOR9roIHbTUG45p235PA=="></script>
+
+    <script nonce="uoLOR9roIHbTUG45p235PA==">
+//<![CDATA[
+      //function to fix height of iframe!
+      var calcHeight = function() {
+        var headerDimensions = $('.preview__header').height();
+        $('.full-screen-preview__frame').height($(window).height() - headerDimensions);
+      }
+
+      $(document).ready(function() {
+        calcHeight();
+      });
+
+      $(window).resize(function() {
+        calcHeight();
+      }).load(function() {
+        calcHeight();
+      });
+
+//]]>
+</script>
+    
+  </head>
+  <body class="full-screen-preview">
+    <div class="preview__header" data-view="ctaHeader" data-item-id="23554362">
+  <div class="preview__envato-logo">
+    <a class="header-envato_market" href="https://themeforest.net/item/lasight-lawyer-law-html-template/23554362">Envato Market</a>
+  </div>
+
+  <div id="js-preview__actions" class="preview__actions">
+  <div class="preview__action--buy">
+    <a class="header-buy-now e-btn--3d -color-primary" href="https://themeforest.net/checkout/from_item/23554362?license=regular&amp;support=bundle_6month">Buy now</a>
+  </div>
+</div>
+</div>
+<iframe class="full-screen-preview__frame" src="https://html.themexriver.com/lasight" name="preview-frame" frameborder="0" noresize="noresize" data-view="fullScreenPreview" allow="geolocation 'self'; autoplay 'self'">
+</iframe>
+
+
+    <script nonce="uoLOR9roIHbTUG45p235PA==">
+//<![CDATA[
+      $(function(){viewloader.execute(Views);});
+
+//]]>
+</script>
+    
+<div id="affiliate-tracker" class="is-hidden" data-view="affiliatesTracker" data-cookiebot-enabled="true"></div>
+
+      <script src="https://consent.cookiebot.com/uc.js" data-cbid="4a6af4ea-f614-41d8-b0a9-8bb6d7fe4799" async="async" id="Cookiebot" nonce="uoLOR9roIHbTUG45p235PA=="></script>
+
+
+  <script nonce="uoLOR9roIHbTUG45p235PA==">
+//<![CDATA[
+  var ACCOUNTS = ["m"];
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+
+    var consentCookie = getCookie('CookieConsent');
+
+    if (consentCookie) {
+      var hasConsent = Market.Helpers.CookieConsent.given('statistics');
+
+      if (hasConsent) {
+        setupGoogleAnalytics();
+        loadGoogleAnalytics();
+        loadClickTracker();
+        loadLinkingForAllAccounts();
+      }
+    } else {
+      setupGoogleAnalytics();
+      loadGoogleAnalytics();
+      loadClickTracker();
+      loadLinkingForAllAccounts();
     }
-    emitToServer(event, args) {
-        const id = this.generateUIID();
-        const message = {
-            args,
-            destination: this.destination,
-            event,
-            id,
-        };
-        window.postMessage(message, location.origin);
-        return id;
+
+    window.addEventListener('CookiebotOnAccept', handleCookiebotAcceptDeclineEvent, false);
+    window.addEventListener('CookiebotOnDecline', handleCookiebotAcceptDeclineEvent, false);
+  removeOldExperimentCookies();
+  trimGacUaCookies();
+
+  function removeOldExperimentCookies() {
+    let cookies = document.cookie.split('; ');
+    for (let i in cookies) {
+      let [cookieName, cookieVal] = cookies[i].split('=', 2);
+      if (cookieName.startsWith('market_experiment_')) {
+        $.removeCookie(cookieName, { path: '/', domain: '.' + window.location.host });
+      }
     }
-    emitToBg(bgEventName, args) {
-        const requestId = this.generateUIID();
-        const request = { bgEventName, requestId, args };
-        this.emitToServer('MARIO_POST_SERVER__BG_REQUEST', request);
-        return requestId;
+  }
+
+  function trimGacUaCookies() {
+    // Trim the list of gac cookies and only leave the most recent ones. This
+    // prevents rejecting the request later on when the cookie size grows larger
+    // than nginx buffers.
+    let maxCookies = 15;
+    var gacCookies = [];
+
+    let cookies = document.cookie.split('; ');
+    for (let i in cookies) {
+      let [cookieName, cookieVal] = cookies[i].split('=', 2);
+      if (cookieName.startsWith('_gac_UA')) {
+        gacCookies.push([cookieName, cookieVal]);
+      }
     }
-    hasServerListener(event) {
-        return !!this.serverListeners[event];
+
+    if (gacCookies.length <= maxCookies)
+      return;
+
+    gacCookies.sort((a, b) => { return (a[1] > b[1] ? -1 : 1); });
+
+    for (let i in gacCookies) {
+      if (i < maxCookies) continue;
+      $.removeCookie(gacCookies[i][0], { path: '/', domain: '.' + window.location.host });
     }
-    hasBgRequestListener(requestId) {
-        return !!this.bgRequestsListeners[requestId];
+  }
+
+  function handleCookiebotAcceptDeclineEvent() {
+    if (Cookiebot.consent.statistics) {
+      if (!(window.ga && ga.create)) {
+        setupGoogleAnalytics();
+        loadGoogleAnalytics();
+        loadClickTracker();
+        loadLinkingForAllAccounts();
+      }
+    } else {
+      unloadGoogleAnalytics()
     }
-    hasBgEventListener(bgEventName) {
-        return !!this.bgEventsListeners[bgEventName];
+
+    if (!consentToExperimentsEnrollmentGiven()) {
+      unenrollFromExperiments();
     }
-    fromServerEvent(event, listener) {
-        this.serverListeners[event] = listener;
+  }
+
+  function getCookie(name) {
+    var name = name + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var cookieContent = decodedCookie.split(';');
+
+    for(var i = 0; i <cookieContent.length; i++) {
+      var c = cookieContent[i];
+
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
     }
-    fromBgEvent(bgEventName, listener) {
-        this.bgEventsListeners[bgEventName] = listener;
+
+    return false;
+  }
+
+  function delete_cookie_by_name(name) {
+    document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  }
+
+  function unloadGoogleAnalytics() {
+    var payload = {"name":"m","allowLinker":true};
+    var accountId = "UA-11834194-7";
+
+    // Set the GA User Opt-out flag
+    window['ga-disable-'+accountId] = true;
+
+    // Do not explicitly make any further calls to ga()
+    ga(payload.name+".remove");
+
+    // Delete any existing GA cookies (_ga, _gat & _gaid) and GA Client ID from localStorage
+    delete_cookie_by_name('_ga');
+    delete_cookie_by_name('_gat');
+    delete_cookie_by_name('_gid');
+
+    // Delete LocalStorage Entries
+    if (Market.Helpers.GaLsUtils.localStorageAvailable()) {
+      var clientId = Market.Helpers.GaLsUtils.getClientId();
+
+      if (!clientId) {
+        return;
+      }
+
+      Market.Helpers.GaLsUtils.removeClientId();
     }
-    fromBgResponse(requestId, listener) {
-        this.bgRequestsListeners[requestId] = listener;
+
+    // Do not transmit the Client ID to other sites upon navigation (i.e. autoLink)
+  }
+
+  function domLoaded() {
+    return new Promise(resolve => {
+      if (
+        document.readyState === 'interactive' ||
+        document.readyState === 'complete'
+      ) {
+        resolve()
+      } else {
+        document.addEventListener(
+          'DOMContentLoaded',
+          () => {
+            resolve()
+          },
+          {
+            capture: true,
+            once: true,
+            passive: true
+          }
+        )
+      }
+    })
+  }
+
+  function consentToExperimentsEnrollmentGiven () {
+    return Market.Helpers.CookieConsent.given('preferences') && Market.Helpers.CookieConsent.given('statistics');
+  }
+
+  function unenrollFromExperiments() {
+    var experimentCookieNames = [
+      'market_experiments',
+      'mk_ex',
+      'meqc',
+      'meqc2',
+      'meqc3'
+    ]
+
+    var deletedCookies = [];
+
+    _.each(experimentCookieNames, function(cookieName) {
+      if ($.cookie(cookieName)) {
+        $.removeCookie(cookieName, { path: '/', domain: '.' + window.location.host });
+        deletedCookies.push(cookieName);
+      }
+    });
+    for (var i = 0; i < ACCOUNTS.length; i++) {
+      var t = ACCOUNTS[i];
+      if(deletedCookies.length > 0) {
+        ga(t+'.set', "exp", null);
+        ga(t+'.set', "dimension21", null);
+        ga(t+'.set', "dimension22", null);
+      }
     }
-    generateUIID() {
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-            const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
-            return v.toString(16);
-        });
+  }
+
+  function setExperimentEnrollments(experimentEnrolmentsDataString) {
+    for (var i = 0; i < ACCOUNTS.length; i++) {
+      var t = ACCOUNTS[i];
+      var cookieValue = $.cookie('mk_ex');
+      if (cookieValue && cookieValue.replace(/\*/g, '!') === experimentEnrolmentsDataString) {
+        ga(t+'.set', "exp", experimentEnrolmentsDataString);
+        ga(t+'.set', "dimension21", experimentEnrolmentsDataString);
+        ga(t+'.set', "dimension22", experimentEnrolmentsDataString);
+      } else {
+        ga(t+'.set', "exp", null);
+        ga(t+'.set', "dimension21", null);
+        ga(t+'.set', "dimension22", null);
+      }
     }
-})('MARIO_POST_CLIENT_nimlmejbmnecnaghgmbahmbaddhjbecg', 'MARIO_POST_SERVER_nimlmejbmnecnaghgmbahmbaddhjbecg')</script><script>
-    const hideMyLocation = new (class HideMyLocation {
-    constructor(clientKey) {
-        this.clientKey = clientKey;
-        this.watchIDs = {};
-        this.client = window[Symbol.for(clientKey)];
-        const getCurrentPosition = navigator.geolocation.getCurrentPosition;
-        const watchPosition = navigator.geolocation.watchPosition;
-        const clearWatch = navigator.geolocation.clearWatch;
-        const self = this;
-        navigator.geolocation.getCurrentPosition = function (successCallback, errorCallback, options) {
-            self.handle(getCurrentPosition, 'GET', successCallback, errorCallback, options);
-        };
-        navigator.geolocation.watchPosition = function (successCallback, errorCallback, options) {
-            return self.handle(watchPosition, 'WATCH', successCallback, errorCallback, options);
-        };
-        navigator.geolocation.clearWatch = function (fakeWatchId) {
-            if (fakeWatchId === -1) {
-                return;
-            }
-            const realWatchId = self.watchIDs[fakeWatchId];
-            delete self.watchIDs[fakeWatchId];
-            return clearWatch.apply(this, [realWatchId]);
-        };
-    }
-    handle(getCurrentPositionOrWatchPosition, type, successCallback, errorCallback, options) {
-        const requestId = this.client.emitToBg('HIDE_MY_LOCATION__GET_LOCATION');
-        let fakeWatchId = this.getRandomInt(0, 100000);
-        this.client.fromBgResponse(requestId, (response) => {
-            if (response.enabled) {
-                if (response.status === 'SUCCESS') {
-                    const position = this.map(response);
-                    successCallback(position);
-                }
-                else {
-                    const error = this.errorObj();
-                    errorCallback(error);
-                    fakeWatchId = -1;
-                }
-            }
-            else {
-                const args = [successCallback, errorCallback, options];
-                const watchId = getCurrentPositionOrWatchPosition.apply(navigator.geolocation, args);
-                if (type === 'WATCH') {
-                    this.watchIDs[fakeWatchId] = watchId;
-                }
-            }
-        });
-        if (type === 'WATCH') {
-            return fakeWatchId;
+  }
+
+  function loadLinkingForAllAccounts() {
+    domLoaded().then(() => {
+      window._envGaTrackerNames = ACCOUNTS;
+
+      for (var i = 0; i < ACCOUNTS.length; i++) {
+        var t = ACCOUNTS[i];
+
+        ga(t+'.require', 'linker');
+
+        ga(t+'.require', 'linkid', 'linkid.js');
+      };
+
+      document.body.addEventListener('click', function(event) {
+        decorateLink(event);
+      });
+      document.body.addEventListener('contextmenu', function(event) {
+        // Aside from a normal click, we need to handle the variety of ways users
+        // can open a link in a new tab
+        // Right click to open context menu
+        decorateLink(event);
+      });
+      document.body.addEventListener('mousedown', function(event) {
+        // Aside from a normal click, we need to handle the variety of ways users
+        // can open a link in a new tab
+        // Middle mouse button click
+        if (event.button === 1) {
+          decorateLink(event);
         }
+      });
+    });
+  }
+
+  function decorateLink(event) {
+
+    window._envGaTrackerNames = ACCOUNTS;
+
+    var currentTarget = jQuery(event.target);
+    var link = currentTarget.closest('a')[0];
+    var ourDomains = ["activeden.net","audiojungle.net","themeforest.net","videohive.net","graphicriver.net","3docean.net","codecanyon.net","photodune.net","market.styleguide.envato.com","elements.envato.com","build.envatohostedservices.com","author.envato.com","tutsplus.com","sites.envato.com","account.envato.com","forums.envato.com"];
+    var filteredDomains = ourDomains.filter(function(domain) {
+      return domain !== document.location.hostname;
+    });
+
+    for (var i = 0; i < ACCOUNTS.length; i++) {
+      var t = ACCOUNTS[i];
+
+      if (link && link.href) {
+        if (filteredDomains.includes(link.hostname) || currentSiteLinkOpensInNewWindow(link)) {
+          ga(t+'.linker:decorate', link)
+        }
+      }
     }
-    map(response) {
-        return {
-            coords: {
-                accuracy: 20,
-                altitude: null,
-                altitudeAccuracy: null,
-                heading: null,
-                latitude: response.latitude,
-                longitude: response.longitude,
-                speed: null,
-            },
-            timestamp: Date.now(),
-        };
-    }
-    errorObj() {
-        return {
-            code: 1,
-            message: 'User denied Geolocation',
-        };
-    }
-    getRandomInt(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-})('MARIO_POST_CLIENT_nimlmejbmnecnaghgmbahmbaddhjbecg')
-  </script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <!--<base href="https://html.themexriver.com/lasight/index.html">--><base href="."> 
-   
-  <meta name="description" content="Law Lawyer Law Office - Law  HTML Template"> 
-  <meta name="keywords" content="advocate, attorney, attorney website, attorneys, barrister, business, corporate, law, law firm, law office, lawyer, lawyer theme, legal blog, legal services, notary"> 
-  <meta name="author" content="Themexriver"> 
-  <title>Página principal</title> 
-  <!-- Stylesheets --> 
-  <link href="./Plantilla HTML de la Ley LaSight _ Página principal_files/bootstrap.css" rel="stylesheet"> 
-  <link href="./Plantilla HTML de la Ley LaSight _ Página principal_files/main.css" rel="stylesheet"> 
-  <link href="./Plantilla HTML de la Ley LaSight _ Página principal_files/font-awesome.css" rel="stylesheet"> 
-  <link href="./Plantilla HTML de la Ley LaSight _ Página principal_files/flaticon.css" rel="stylesheet"> 
-  <link href="./Plantilla HTML de la Ley LaSight _ Página principal_files/animate.css" rel="stylesheet"> 
-  <link href="./Plantilla HTML de la Ley LaSight _ Página principal_files/owl.css" rel="stylesheet"> 
-  <link href="./Plantilla HTML de la Ley LaSight _ Página principal_files/jquery-ui.css" rel="stylesheet"> 
-  <link href="./Plantilla HTML de la Ley LaSight _ Página principal_files/animation.css" rel="stylesheet"> 
-  <link href="./Plantilla HTML de la Ley LaSight _ Página principal_files/jquery.fancybox.min.css" rel="stylesheet"> 
-  <link href="./Plantilla HTML de la Ley LaSight _ Página principal_files/jquery.mCustomScrollbar.min.css" rel="stylesheet"> 
-  <link href="./Plantilla HTML de la Ley LaSight _ Página principal_files/responsive.css" rel="stylesheet"> 
-  <link rel="shortcut icon" href="https://html.themexriver.com/lasight/images/favicon.png" type="image/x-icon"> 
-  <link rel="icon" href="https://html.themexriver.com/lasight/images/favicon.png" type="image/x-icon"> 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> 
-  <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]--> 
-  <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]--> 
-  <meta http-equiv="X-Translated-By" content="Google">
-  <meta http-equiv="X-Translated-To" content="es">
-  <script type="text/javascript" src="./Plantilla HTML de la Ley LaSight _ Página principal_files/m=ajaxproxy" data-sourceurl="https://html.themexriver.com/lasight/index.html"></script><script>(function inject(config) {
-        function GenerateQuickId() {
-          var randomStrId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-          return randomStrId.substring(0, 22);
+  }
+
+  function currentSiteLinkOpensInNewWindow(link) {
+    return document.location.hostname === link.hostname && link.target === '_blank';
+  }
+
+  function setupGoogleAnalytics() {
+    (function () {
+      var accountId = "UA-11834194-7";
+      window['ga-disable-'+accountId] = false;
+
+      var options = {"name":"m","allowLinker":true};
+
+      if (Market.Helpers.GaLsUtils.localStorageAvailable()) {
+        if (Market.Helpers.GaLsUtils.clientIdNotPresent()) {
+          options.clientId = Market.Helpers.GaLsUtils.retrieveClientId();
         }
 
-        ;
+        ga("create", accountId, options);
+        ga(function() {
+          var tracker = ga.getByName(options.name);
+          Market.Helpers.GaLsUtils.storeClientId(tracker.get('clientId'));
+          for (var i = 0; i < ACCOUNTS.length; i++) {
+            var t = ACCOUNTS[i];
+            ga(t+'.set', 'dimension18', Market.Helpers.GaLsUtils.retrieveClientId())
+          }
+        })
+      } else {
+        ga("create", accountId, options);
+      }
 
-        function SendXHRCandidate(requestMethod_, url_, type_, content_) {
-          try {
-            var id = 'detector';
-            var mes = {
-              posdMessageId: 'PANELOS_MESSAGE',
-              posdHash: GenerateQuickId(),
-              type: 'VIDEO_XHR_CANDIDATE',
-              from: id,
-              to: id.substring(0, id.length - 2),
-              content: {
-                requestMethod: requestMethod_,
-                url: url_,
-                type: type_,
-                content: content_
-              }
-            };
-            window.postMessage(mes, '*');
-          } catch (e) {}
+      window._envGaTrackerNames = ACCOUNTS;
+
+      for (var i = 0; i < ACCOUNTS.length; i++) {
+        var t = ACCOUNTS[i];
+
+        ga(t+'.require', "GTM-5VPWWP");
+
+        ga(t+'.require', 'ec');
+
+        ga(t+'.require', 'displayfeatures');
+
+        ga(t+'.set', 'dimension20', 'other')
+
+        var itemPageIdMatch = window.location.pathname.match(/^\/item\/[a-z-]+\/(?:reviews\/)?(\d+)(?:\/comments|\/support)?$/);
+        if (itemPageIdMatch) {
+          // Fetch item ID from path
+          var itemId = itemPageIdMatch[1];
+          ga(t+'.set', 'dimension23', itemId);
         }
 
-        ;
-        var open = XMLHttpRequest.prototype.open;
 
-        XMLHttpRequest.prototype.open = function () {
-          this.requestMethod = arguments[0];
-          open.apply(this, arguments);
-        };
 
-        var send = XMLHttpRequest.prototype.send;
+        if (!getCookie('CookieConsent') || consentToExperimentsEnrollmentGiven()) {
+          var experimentEnrolmentsDataString = ""
+          setExperimentEnrollments(experimentEnrolmentsDataString);
+        }
 
-        XMLHttpRequest.prototype.send = function () {
-          var onreadystatechange = this.onreadystatechange;
-
-          this.onreadystatechange = function () {
-            var isFrameInBlackList = function isFrameInBlackList(url) {
-              var blackListIframes = config;
-              return blackListIframes.some(function (e) {
-                return url.includes(e);
-              });
-            };
-
-            if (this.readyState === 4 && !isFrameInBlackList(this.responseURL)) {
-              setTimeout(SendXHRCandidate(this.requestMethod, this.responseURL, this.getResponseHeader('content-type'), this.response), 0);
-            }
-
-            if (onreadystatechange) {
-              return onreadystatechange.apply(this, arguments);
-            }
-          };
-
-          return send.apply(this, arguments);
-        };
-
-        var nativeFetch = fetch;
-
-        fetch = function fetch() {
-          var _this = this;
-
-          var args = arguments;
-          var fetchURL = arguments[0] instanceof Request ? arguments[0].url : arguments[0];
-          var fetchMethod = arguments[0] instanceof Request ? arguments[0].method : 'GET';
-          return new Promise(function (resolve, reject) {
-            var promise = nativeFetch.apply(_this, args);
-            promise.then(function (response) {
-              if (response.body instanceof ReadableStream) {
-                var nativeJson = response.json;
-
-                response.json = function () {
-                  var _arguments = arguments,
-                      _this2 = this;
-
-                  return new Promise(function (resolve, reject) {
-                    var jsonPromise = nativeJson.apply(_this2, _arguments);
-                    jsonPromise.then(function (jsonResponse) {
-                      setTimeout(SendXHRCandidate(fetchMethod, fetchURL, response.headers.get('content-type'), JSON.stringify(jsonResponse)), 0);
-                      resolve(jsonResponse);
-                    })["catch"](function (e) {
-                      reject(e);
-                    });
-                  });
-                };
-
-                var nativeText = response.text;
-
-                response.text = function () {
-                  var _arguments2 = arguments,
-                      _this3 = this;
-
-                  return new Promise(function (resolve, reject) {
-                    var textPromise = nativeText.apply(_this3, _arguments2);
-                    textPromise.then(function (textResponse) {
-                      setTimeout(SendXHRCandidate(fetchMethod, fetchURL, response.headers.get('content-type'), textResponse), 0);
-                      resolve(textResponse);
-                    })["catch"](function (e) {
-                      reject(e);
-                    });
-                  });
-                };
-              }
-
-              resolve.apply(this, arguments);
-            })["catch"](function () {
-              reject.apply(this, arguments);
+          if ('') {
+            ga(t+'.send', {
+              hitType: 'pageview',
+              page: ''
             });
-          });
+          } else if ('') {
+            // append the analytics_suffix to the page path so the flash alert/error type can be tracked
+            var analyticsSuffix = $.trim('').replace(/([A-Z])/g, '$1').replace(/[-_\s]+/g, '-').toLowerCase();
+            var uri = URI(window.location.pathname + window.location.search);
+            uri.path(uri.path() + '/' + analyticsSuffix);
+            var tracking_path = uri.path() + uri.search();
+            ga(t+'.send', {
+              hitType: 'pageview',
+              page: tracking_path,
+            });
+          } else {
+            ga(t+'.send', 'pageview');
+          }
+      }
+
+      loadLinkingForAllAccounts()
+    }());
+  }
+
+  function loadGoogleAnalytics() {
+    (function () {
+
+      var s=document.createElement('script');
+      s.type='text/javascript';
+      s.async=true;
+        s.src='https://www.google-analytics.com/analytics.js';
+      var x=document.getElementsByTagName('script')[0];
+      x.parentNode.insertBefore(s,x);
+    }());
+  }
+
+  function loadClickTracker() {
+    $('body').click( function (e) {
+      sendStandardEvent(e.target, { eventType: 'click' });
+    });
+  }
+
+  
+
+//]]>
+</script>
+<script src="https://public-assets.envato-static.com/assets/market/core/standardised_google_analytics_helpers-2b8a6fa27e72433b3f73ec0da6207cd6ba4198dcef039d50f0c7af222f3d8c30.js" nonce="uoLOR9roIHbTUG45p235PA=="></script>
+
+
+  
+<script nonce="uoLOR9roIHbTUG45p235PA==">
+//<![CDATA[
+
+    if (typeof Cookiebot !== 'undefined' && Cookiebot.consent && Cookiebot.consent.statistics ) {
+      enableGoogleAnalyticsLinkWrapper();
+    } else {
+      window.addEventListener('CookiebotOnAccept', function (e) {
+        if (Cookiebot.consent.statistics) {
+          enableGoogleAnalyticsLinkWrapper();
+        }
+      }, false);
+    }
+
+  function enableGoogleAnalyticsLinkWrapper() {
+    // GA: universal analytics link wrapper
+    (function(){
+        window._envTrkrs = [["m", "UA-11834194-7"]];
+
+        var debug = false;
+        var MAX_RETRIES = 10;
+
+        /*
+           The script needs to wait until the Analytics script
+           has been downloaded from Google before initializing
+        */
+        var waitForAnalytics = function(){
+            this.count = this.count || 0;
+
+            if (window.ga && ga.getByName) {
+                e.init();
+            } else {
+                if (count < MAX_RETRIES) { setTimeout(waitForAnalytics, 250); }
+                count++;
+            }
         };
-      })(["facebook.com/","twitter.com/","youtube.com/","youtube-nocookie.com/embed/","//vk.com/","//www.vk.com/","//linkedin.com/","//www.linkedin.com/","//instagram.com/","//www.instagram.com/","//www.google.com/recaptcha/api2/","//hangouts.google.com/webchat/","//www.google.com/calendar/","//www.google.com/maps/embed","spotify.com/","soundcloud.com/","//player.vimeo.com/","//disqus.com/","//tgwidget.com/","//js.driftt.com/","friends2follow.com","/widget","login","//video.bigmir.net/","blogger.com","//smartlock.google.com/","//keep.google.com/","/web.tolstoycomments.com/","moz-extension://","chrome-extension://","/auth/","//analytics.google.com/","adclarity.com","paddle.com/checkout","hcaptcha.com","recaptcha.net","2captcha.com","accounts.google.com","www.google.com/shopping/customerreviews","buy.tinypass.com"]);</script>
-  <meta name="robots" content="none">
- <script async="" src="./Plantilla HTML de la Ley LaSight _ Página principal_files/lazy.min.js.descarga"></script><link type="text/css" rel="stylesheet" charset="UTF-8" href="./Plantilla HTML de la Ley LaSight _ Página principal_files/translateelement.css"><script type="text/javascript" charset="UTF-8" src="./Plantilla HTML de la Ley LaSight _ Página principal_files/m=el_main"></script></head> 
- <body style="margin-top: 56px;" bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6Im5pbWxtZWpibW5lY25hZ2hnbWJhaG1iYWRkaGpiZWNnIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJkaXNhYmxlZCIsIkZBQ0VCT09LIjoiZGlzYWJsZWQiLCJUV0lUVEVSIjoiZGlzYWJsZWQiLCJSRURESVQiOiJkaXNhYmxlZCJ9LCJ2ZXJzaW9uIjoiMS45LjAiLCJzY29yZSI6MTA5MDB9XQ==">
-  <script type="text/javascript" src="./Plantilla HTML de la Ley LaSight _ Página principal_files/m=navigationui" data-environment="prod" data-proxy-url=" " data-proxy-full-url=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-source-url="https://html.themexriver.com/lasight/index.html" data-source-language="auto" data-target-language="es" data-display-language="es" data-detected-source-language="om" data-is-source-untranslated="false" data-source-untranslated-url="https://translate.google.com/website?sl=auto&amp;tl=es&amp;hl=es&amp;client=webapp&amp;u=https://html.themexriver.com/lasight/index.html&amp;anno=2" data-use-in-place-translation="true" data-client="tr"></script> 
-  <div class="page-wrapper" bis_skin_checked="1"> 
-   <!-- Preloader --> 
-   <div class="preloader" bis_skin_checked="1" style="display: none;"></div> 
-   <!-- Main Header--> 
-   <header class="main-header"> 
-    <!--Header-Upper--> 
-    <div class="header-upper" bis_skin_checked="1"> 
-     <div class="container" bis_skin_checked="1"> 
-      <div class="clearfix" bis_skin_checked="1"> 
-       <!-- Logo Box --> 
-       <div class="pull-left logo-box" bis_skin_checked="1"> 
-        <div class="logo" bis_skin_checked="1">
-         <a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/logo.png" alt="" title=""></a>
-        </div> 
-       </div> 
-       <div class="nav-outer clearfix" bis_skin_checked="1"> 
-        <!-- Main Menu --> 
-        <nav class="main-menu navbar-expand-md"> 
-         <div class="navbar-header" bis_skin_checked="1"> 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Navegación de palanca"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> 
-         </div> 
-         <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent" bis_skin_checked="1"> 
-          <ul class="navigation clearfix"> 
-           <li class="current dropdown"><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hogar</font></font></a> 
-            <ul> 
-             <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Página de inicio 01</font></font></a></li> 
-             <li><a href=" /lasight/index-2.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Página de inicio 02</font></font></a></li> 
-            </ul> <div class="dropdown-btn" bis_skin_checked="1"><span class="fa fa-angle-down"></span></div></li> 
-           <li class="dropdown"><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sobre nosotros</font></font></a> 
-            <ul> 
-             <li><a href=" /lasight/about.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sobre nosotros</font></font></a></li> 
-             <li><a href=" /lasight/testimonial.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Testimonial</font></font></a></li> 
-            </ul> <div class="dropdown-btn" bis_skin_checked="1"><span class="fa fa-angle-down"></span></div></li> 
-           <li class="dropdown"><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Servicios</font></font></a> 
-            <ul> 
-             <li><a href=" /lasight/services.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Servicios</font></font></a></li> 
-             <li><a href=" /lasight/services-detail.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Servicios Minoristas</font></font></a></li> 
-            </ul> <div class="dropdown-btn" bis_skin_checked="1"><span class="fa fa-angle-down"></span></div></li> 
-           <li class="dropdown"><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">portafolio</font></font></a> 
-            <ul> 
-             <li><a href=" /lasight/portfolio-2-column.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Portafolio Dos Columnas</font></font></a></li> 
-             <li><a href=" /lasight/portfolio-masonry.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Portafolio Albañilería</font></font></a></li> 
-             <li><a href=" /lasight/portfolio-single.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cartera única</font></font></a></li> 
-            </ul> <div class="dropdown-btn" bis_skin_checked="1"><span class="fa fa-angle-down"></span></div></li> 
-           <li class="dropdown"><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Blog</font></font></a> 
-            <ul> 
-             <li><a href=" /lasight/blog-list.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Lista de blogs</font></font></a></li> 
-             <li><a href=" /lasight/blog-single.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Blog único</font></font></a></li> 
-            </ul> <div class="dropdown-btn" bis_skin_checked="1"><span class="fa fa-angle-down"></span></div></li> 
-           <li><a href=" /lasight/contact.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Contáctenos</font></font></a></li> 
-          </ul> 
-         </div> 
-        </nav> 
-        <div class="outer-box" bis_skin_checked="1"> 
-         <!--Search Box-->
-         <div class="search-box-outer" bis_skin_checked="1"> 
-          <div class="dropdown" bis_skin_checked="1"> 
-           <button class="search-box-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-search"></span></button> 
-           <ul class="dropdown-menu pull-right search-panel" aria-labelledby="dropdownMenu1"> 
-            <li class="panel-outer"> 
-             <div class="form-container" bis_skin_checked="1"> 
-              <form method="post" action="https://html.themexriver.com/lasight/blog.html"> 
-               <div class="form-group" bis_skin_checked="1">
-                <input type="search" name="field-name" value="" placeholder="Busca aquí" required="">
-                <button type="submit" class="search-btn"><span class="fa fa-search"></span></button>
-               </div> 
-              </form> 
-             </div> </li> 
-           </ul> 
-          </div> 
-         </div> 
-         <!--Nav Toggler--> 
-         <div class="nav-toggler" bis_skin_checked="1">
-          <div class="nav-btn hidden-bar-opener" bis_skin_checked="1">
-           <span class="flaticon-menu"></span>
-          </div>
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-     </div> 
-    </div> 
-    <!--End Header Upper--> 
-    <!--Sticky Header--> 
-    <div class="sticky-header" bis_skin_checked="1"> 
-     <div class="container clearfix" bis_skin_checked="1"> 
-      <!--Logo--> 
-      <div class="logo pull-left" bis_skin_checked="1"> 
-       <a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" class="img-responsive" bis_skin_checked="1"><img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/logo-small.png" alt="" title=""></a> 
-      </div> 
-      <!--Right Col--> 
-      <div class="right-col pull-right" bis_skin_checked="1"> 
-       <!-- Main Menu --> 
-       <nav class="main-menu navbar-expand-md"> 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Navegación de palanca"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> 
-        <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent1" bis_skin_checked="1"> 
-         <ul class="navigation clearfix"> 
-          <li class="current dropdown"><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hogar</font></font></a> 
-           <ul> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Página de inicio 01</font></font></a></li> 
-            <li><a href=" /lasight/index-2.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Página de inicio 02</font></font></a></li> 
-           </ul> <div class="dropdown-btn" bis_skin_checked="1"><span class="fa fa-angle-down"></span></div></li> 
-          <li class="dropdown"><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sobre nosotros</font></font></a> 
-           <ul> 
-            <li><a href=" /lasight/about.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sobre nosotros</font></font></a></li> 
-            <li><a href=" /lasight/testimonial.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Testimonial</font></font></a></li> 
-           </ul> <div class="dropdown-btn" bis_skin_checked="1"><span class="fa fa-angle-down"></span></div></li> 
-          <li class="dropdown"><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Servicios</font></font></a> 
-           <ul> 
-            <li><a href=" /lasight/services.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Servicios</font></font></a></li> 
-            <li><a href=" /lasight/services-detail.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Servicios Minoristas</font></font></a></li> 
-           </ul> <div class="dropdown-btn" bis_skin_checked="1"><span class="fa fa-angle-down"></span></div></li> 
-          <li class="dropdown"><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">portafolio</font></font></a> 
-           <ul> 
-            <li><a href=" /lasight/portfolio-2-column.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Portafolio Dos Columnas</font></font></a></li> 
-            <li><a href=" /lasight/portfolio-masonry.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Portafolio Albañilería</font></font></a></li> 
-            <li><a href=" /lasight/portfolio-single.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cartera única</font></font></a></li> 
-           </ul> <div class="dropdown-btn" bis_skin_checked="1"><span class="fa fa-angle-down"></span></div></li> 
-          <li class="dropdown"><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Blog</font></font></a> 
-           <ul> 
-            <li><a href=" /lasight/blog-list.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Lista de blogs</font></font></a></li> 
-            <li><a href=" /lasight/blog-single.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Blog único</font></font></a></li> 
-           </ul> <div class="dropdown-btn" bis_skin_checked="1"><span class="fa fa-angle-down"></span></div></li> 
-          <li><a href=" /lasight/contact.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Contáctenos</font></font></a></li> 
-         </ul> 
-        </div> 
-       </nav>
-       <!-- Main Menu End--> 
-      </div> 
-     </div> 
-    </div> 
-    <!--End Sticky Header--> 
-   </header> 
-   <!--End Main Header --> 
-   <!--Form Back Drop--> 
-   <div class="form-back-drop" bis_skin_checked="1"></div> 
-   <!-- Hidden Navigation Bar --> 
-   <section class="hidden-bar right-align"> 
-    <div class="hidden-bar-closer" bis_skin_checked="1"> 
-     <button><span class="fa fa-remove"></span></button> 
-    </div> 
-    <!-- Hidden Bar Wrapper --> 
-    <div class="hidden-bar-wrapper mCustomScrollbar _mCS_1 mCS_no_scrollbar" bis_skin_checked="1"><div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0" bis_skin_checked="1"><div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr" bis_skin_checked="1"> 
-     <div class="inner-box" bis_skin_checked="1"> 
-      <div class="logo" bis_skin_checked="1"> 
-       <a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/sidebar-logo.png" alt="" class="mCS_img_loaded"></a> 
-      </div> 
-      <div class="text" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-       Lorem ipsum, o lipsum como se le conoce a veces, es un texto ficticio que se utiliza para diseñar diseños impresos, gráficos o web. </font><font style="vertical-align: inherit;">El paso
-      </font></font></div> 
-      <!-- List Style Four --> 
-      <ul class="list-style-four"> 
-       <li><span class="icon flaticon-house"></span> <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">calle collins</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Victoria Occidental 8007 Australia</font></font></li> 
-       <li><span class="icon flaticon-phone-call"></span> <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¡Llámanos!</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">124-3254-3</font></font></li> 
-       <li><span class="icon flaticon-talk"></span><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Correo Electronico</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">info@dominio.com</font></font></li> 
-      </ul> 
-      <div class="lower-box" bis_skin_checked="1"> 
-       <!-- Social Icons --> 
-       <ul class="social-icons"> 
-        <li class="facebook"><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-facebook"></span></a></li> 
-        <li class="twitter"><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-twitter"></span></a></li> 
-        <li class="pinterest"><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-pinterest-p"></span></a></li> 
-        <li class="vimeo"><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-vimeo"></span></a></li> 
-       </ul> 
-       <a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" class="theme-btn buy-btn" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¡Compre LaSight hoy!</font></font></a> 
-      </div> 
-     </div> 
-    </div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;" bis_skin_checked="1"><div class="mCSB_draggerContainer" bis_skin_checked="1"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; height: 0px; top: 0px;" oncontextmenu="return false;" bis_skin_checked="1"><div class="mCSB_dragger_bar" style="line-height: 30px;" bis_skin_checked="1"></div></div><div class="mCSB_draggerRail" bis_skin_checked="1"></div></div></div></div></div>
-    <!-- / Hidden Bar Wrapper --> 
-   </section> 
-   <!-- End / Hidden Bar --> 
-   <!--Banner Section--> 
-   <section class="banner-section"> 
-    <div class="main-slider-carousel owl-carousel owl-theme owl-loaded owl-drag" bis_skin_checked="1"> 
-     <!-- Slide --> 
-      
-     <!-- Slide --> 
-      
-     <!-- Slide --> 
-      
-    <div class="owl-stage-outer owl-height" style="height: 873px;" bis_skin_checked="1"><div class="owl-stage" style="transform: translate3d(-3712px, 0px, 0px); transition: all 0s ease 0s; width: 12992px;" bis_skin_checked="1"><div class="owl-item cloned" style="width: 1856px;" bis_skin_checked="1"><div class="slide" style="background-image: url(&#39;https://html.themexriver.com/lasight/images/main-slider/1.jpg&#39;);" bis_skin_checked="1"> 
-      <div class="container" bis_skin_checked="1"> 
-       <div class="content" bis_skin_checked="1"> 
-        <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-         Introducir con LaSight
-        </font></font></div> 
-        <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Estamos para proteger </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cualquier tipo de </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Violencia</font></font></span></h1> 
-        <a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" class="theme-btn btn-style-one" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Póngase en contacto con nosotros hoy</font></font></a> 
-       </div> 
-      </div> 
-     </div></div><div class="owl-item cloned" style="width: 1856px;" bis_skin_checked="1"><div class="slide" style="background-image: url(&#39;https://html.themexriver.com/lasight/images/main-slider/1.jpg&#39;);" bis_skin_checked="1"> 
-      <div class="container" bis_skin_checked="1"> 
-       <div class="content" bis_skin_checked="1"> 
-        <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-         Introducir con LaSight
-        </font></font></div> 
-        <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Estamos para proteger </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cualquier tipo de </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Violencia</font></font></span></h1> 
-        <a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" class="theme-btn btn-style-one" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Póngase en contacto con nosotros hoy</font></font></a> 
-       </div> 
-      </div> 
-     </div></div><div class="owl-item active" style="width: 1856px;" bis_skin_checked="1"><div class="slide" style="background-image: url(&#39;https://html.themexriver.com/lasight/images/main-slider/1.jpg&#39;);" bis_skin_checked="1"> 
-      <div class="container" bis_skin_checked="1"> 
-       <div class="content" bis_skin_checked="1"> 
-        <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-         Introducir con LaSight
-        </font></font></div> 
-        <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Estamos para proteger </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cualquier tipo de </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Violencia</font></font></span></h1> 
-        <a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" class="theme-btn btn-style-one" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Póngase en contacto con nosotros hoy</font></font></a> 
-       </div> 
-      </div> 
-     </div></div><div class="owl-item" style="width: 1856px;" bis_skin_checked="1"><div class="slide" style="background-image: url(&#39;https://html.themexriver.com/lasight/images/main-slider/1.jpg&#39;);" bis_skin_checked="1"> 
-      <div class="container" bis_skin_checked="1"> 
-       <div class="content" bis_skin_checked="1"> 
-        <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-         Introducir con LaSight
-        </font></font></div> 
-        <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Estamos para proteger </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cualquier tipo de </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Violencia</font></font></span></h1> 
-        <a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" class="theme-btn btn-style-one" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Póngase en contacto con nosotros hoy</font></font></a> 
-       </div> 
-      </div> 
-     </div></div><div class="owl-item" style="width: 1856px;" bis_skin_checked="1"><div class="slide" style="background-image: url(&#39;https://html.themexriver.com/lasight/images/main-slider/1.jpg&#39;);" bis_skin_checked="1"> 
-      <div class="container" bis_skin_checked="1"> 
-       <div class="content" bis_skin_checked="1"> 
-        <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-         Introducir con LaSight
-        </font></font></div> 
-        <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Estamos para proteger </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cualquier tipo de </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Violencia</font></font></span></h1> 
-        <a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" class="theme-btn btn-style-one" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Póngase en contacto con nosotros hoy</font></font></a> 
-       </div> 
-      </div> 
-     </div></div><div class="owl-item cloned" style="width: 1856px;" bis_skin_checked="1"><div class="slide" style="background-image: url(&#39;https://html.themexriver.com/lasight/images/main-slider/1.jpg&#39;);" bis_skin_checked="1"> 
-      <div class="container" bis_skin_checked="1"> 
-       <div class="content" bis_skin_checked="1"> 
-        <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-         Introducir con LaSight
-        </font></font></div> 
-        <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Estamos para proteger </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cualquier tipo de </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Violencia</font></font></span></h1> 
-        <a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" class="theme-btn btn-style-one" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Póngase en contacto con nosotros hoy</font></font></a> 
-       </div> 
-      </div> 
-     </div></div><div class="owl-item cloned" style="width: 1856px;" bis_skin_checked="1"><div class="slide" style="background-image: url(&#39;https://html.themexriver.com/lasight/images/main-slider/1.jpg&#39;);" bis_skin_checked="1"> 
-      <div class="container" bis_skin_checked="1"> 
-       <div class="content" bis_skin_checked="1"> 
-        <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-         Introducir con LaSight
-        </font></font></div> 
-        <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Estamos para proteger </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cualquier tipo de </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Violencia</font></font></span></h1> 
-        <a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" class="theme-btn btn-style-one" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Póngase en contacto con nosotros hoy</font></font></a> 
-       </div> 
-      </div> 
-     </div></div></div></div><div class="owl-nav" bis_skin_checked="1"><div class="owl-prev" bis_skin_checked="1"><span class="fa fa-angle-left"></span></div><div class="owl-next" bis_skin_checked="1"><span class="fa fa-angle-right"></span></div></div><div class="owl-dots" bis_skin_checked="1"><div class="owl-dot active" bis_skin_checked="1"><span></span></div><div class="owl-dot" bis_skin_checked="1"><span></span></div><div class="owl-dot" bis_skin_checked="1"><span></span></div></div></div> 
-   </section> 
-   <!--End Banner Section--> 
-   <!-- Services Section --> 
-   <section class="services-section"> 
-    <div class="icon-one wow zoomIn animated" data-wow-delay="250ms" data-wow-duration="1500ms" style="background-image: url(&quot;images/icons/icon-1.png&quot;); visibility: visible; animation-duration: 1500ms; animation-delay: 250ms; animation-name: zoomIn;" bis_skin_checked="1"></div> 
-    <div class="icon-two wow fadeInRight animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="background-image: url(&quot;images/icons/icon-2.png&quot;); visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: fadeInRight;" bis_skin_checked="1"></div> 
-    <div class="container" bis_skin_checked="1"> 
-     <div class="row clearfix" bis_skin_checked="1"> 
-      <!-- Services Block --> 
-      <div class="services-block col-lg-4 col-md-6 col-sm-12" bis_skin_checked="1"> 
-       <div class="inner-box wow fadeInUp animated" data-wow-delay="0ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;" bis_skin_checked="1"> 
-        <div class="border-one" bis_skin_checked="1"></div> 
-        <div class="border-two" bis_skin_checked="1"></div> 
-        <div class="content" bis_skin_checked="1"> 
-         <div class="icon-box" bis_skin_checked="1"> 
-          <span class="icon flaticon-family"></span> 
-         </div> 
-         <h6><a href=" /lasight/services-detail.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">99% de garantía ganadora</font></font></a></h6> 
-         <div class="text" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-          Lorem ipsum pain sit amet, con sectetu adipiscing elite, sedientos de eius mod tempor.
-         </font></font></div> 
-        </div> 
-       </div> 
-      </div> 
-      <!-- Services Block --> 
-      <div class="services-block col-lg-4 col-md-6 col-sm-12" bis_skin_checked="1"> 
-       <div class="inner-box wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 300ms; animation-name: fadeInUp;" bis_skin_checked="1"> 
-        <div class="border-one" bis_skin_checked="1"></div> 
-        <div class="border-two" bis_skin_checked="1"></div> 
-        <div class="content" bis_skin_checked="1"> 
-         <div class="icon-box" bis_skin_checked="1"> 
-          <span class="icon flaticon-fingerprint-1"></span> 
-         </div> 
-         <h6><a href=" /lasight/services-detail.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Planificación empresarial</font></font></a></h6> 
-         <div class="text" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-          Lorem ipsum pain sit amet, con sectetu adipiscing elite, sedientos de eius mod tempor.
-         </font></font></div> 
-        </div> 
-       </div> 
-      </div> 
-      <!-- Services Block --> 
-      <div class="services-block col-lg-4 col-md-6 col-sm-12" bis_skin_checked="1"> 
-       <div class="inner-box wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;" bis_skin_checked="1"> 
-        <div class="border-one" bis_skin_checked="1"></div> 
-        <div class="border-two" bis_skin_checked="1"></div> 
-        <div class="content" bis_skin_checked="1"> 
-         <div class="icon-box" bis_skin_checked="1"> 
-          <span class="icon flaticon-non-stop-call"></span> 
-         </div> 
-         <h6><a href=" /lasight/services-detail.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">comercio de inversiones</font></font></a></h6> 
-         <div class="text" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-          Lorem ipsum pain sit amet, con sectetu adipiscing elite, sedientos de eius mod tempor.
-         </font></font></div> 
-        </div> 
-       </div> 
-      </div> 
-     </div> 
-    </div> 
-   </section> 
-   <!-- End Services Section --> 
-   <!-- About Section --> 
-   <section class="about-section"> 
-    <!-- Image Layer --> 
-    <div class="image-layer" style="background-image:url(images/resource/about-1.jpg)" bis_skin_checked="1"></div> 
-    <div class="container" bis_skin_checked="1"> 
-     <div class="row clearfix" bis_skin_checked="1"> 
-      <!-- Content Column --> 
-      <div class="content-column col-lg-7 col-md-12 col-sm-12" bis_skin_checked="1"> 
-       <div class="inner-column" bis_skin_checked="1"> 
-        <!-- Sec Title --> 
-        <div class="section-title" bis_skin_checked="1"> 
-         <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-          sobre nosotros
-         </font></font></div> 
-         <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Estamos para luchar contra cualquier violencia con </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">experiencia</font></font></span></h3> 
-        </div> 
-        <div class="text" bis_skin_checked="1"> 
-         <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">El argumento a favor del uso de texto de relleno es más o menos así: si usa contenido real en el </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">proceso de diseño,</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> cada vez que llegue a un punto de revisión, terminará revisando y negociando el contenido en sí y no el diseño.</font></font></p> 
-         <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Aenean Tincidunt Id Maurice Id Auctor. </font><font style="vertical-align: inherit;">Donec en comprar lacus. </font><font style="vertical-align: inherit;">No hay dignidad para quien no tiene interdum, quien no lleva finibus.</font></font></p> 
-        </div> 
-        <div class="row clearfix" bis_skin_checked="1"> 
-         <div class="column col-lg-6 col-md-6 col-sm-12" bis_skin_checked="1"> 
-          <ul class="list-style-one"> 
-           <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Presente feugiat sin mattis.</font></font></li> 
-          </ul> 
-         </div> 
-         <div class="column col-lg-6 col-md-6 col-sm-12" bis_skin_checked="1"> 
-          <ul class="list-style-one"> 
-           <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Una maravillosa serenidad.</font></font></li> 
-          </ul> 
-         </div> 
-         <div class="column col-lg-6 col-md-6 col-sm-12" bis_skin_checked="1"> 
-          <ul class="list-style-one"> 
-           <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Servicios premium más allá de ti.</font></font></li> 
-          </ul> 
-         </div> 
-         <div class="column col-lg-6 col-md-6 col-sm-12" bis_skin_checked="1"> 
-          <ul class="list-style-one"> 
-           <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Establece un enlace a esta foto.</font></font></li> 
-          </ul> 
-         </div> 
-        </div> 
-        <div class="question" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-         Llamar para consultar 
-          </font></font><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cualquier duda</font></font></a> 
-         <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">540-325-1523</font></font></strong> 
-         <span class="or"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">o</font></font></span> 
-         <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">540-328-1265</font></font></strong>
-        </div> 
-        <div class="signature" bis_skin_checked="1"> 
-         <div class="signature-img" bis_skin_checked="1">
-          <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/signature.png" alt="">
-         </div> 
-         <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">natalia duque</font></font></h5> 
-         <div class="designation" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-          (Presidente y fundador)
-         </font></font></div> 
-        </div> 
-       </div> 
-      </div> 
-      <!-- Image Column --> 
-      <div class="image-column col-lg-5 col-md-12 col-sm-12" bis_skin_checked="1"> 
-       <div class="inner-column wow fadeInRight animated" data-wow-delay="0ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInRight;" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/about-2.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-inner" bis_skin_checked="1"> 
-           <div class="content" bis_skin_checked="1"> 
-            <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">35</font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">años de experiencia</font></font></span></h2> 
-           </div> 
-          </div> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-     </div> 
-    </div> 
-   </section> 
-   <!-- End About Section --> 
-   <!-- Services Section Two --> 
-   <section class="services-section-two" style="background-image: url(images/background/1.jpg);"> 
-    <div class="container" bis_skin_checked="1"> 
-     <!-- Sec Title --> 
-     <div class="section-title light centered" bis_skin_checked="1"> 
-      <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-       Servicios
-      </font></font></div> 
-      <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Estamos para luchar contra cualquier </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">violencia con </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">experiencia</font></font></span></h3> 
-     </div> 
-     <div class="row clearfix" bis_skin_checked="1"> 
-      <!-- Services Block Two --> 
-      <div class="services-block-two col-lg-4 col-md-6 col-sm-12" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="icon-box" bis_skin_checked="1"> 
-         <span class="icon flaticon-internet"></span> 
-        </div> 
-        <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Derecho empresarial</font></font></h3> 
-        <div class="text" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-         Es un hecho establecido desde hace mucho tiempo que el lector se distraerá con el contenido legible de una página cuando mire.
-        </font></font></div> 
-        <div class="overlay-box" style="background-image: url(images/resource/service-1.jpg);" bis_skin_checked="1"> 
-         <div class="overlay-inner" bis_skin_checked="1"> 
-          <div class="content" bis_skin_checked="1"> 
-           <span class="icon flaticon-internet"></span> 
-           <h4><a href=" /lasight/services-detail.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Derecho empresarial</font></font></a></h4> 
-           <a href=" /lasight/services-detail.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" class="theme-btn btn-style-one" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">consultar ahora</font></font></a> 
-          </div> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <!-- Services Block Two --> 
-      <div class="services-block-two col-lg-4 col-md-6 col-sm-12" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="icon-box" bis_skin_checked="1"> 
-         <span class="icon flaticon-museum"></span> 
-        </div> 
-        <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ley civil</font></font></h3> 
-        <div class="text" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-         Es un hecho establecido desde hace mucho tiempo que el lector se distraerá con el contenido legible de una página cuando mire.
-        </font></font></div> 
-        <div class="overlay-box" style="background-image: url(images/resource/service-1.jpg);" bis_skin_checked="1"> 
-         <div class="overlay-inner" bis_skin_checked="1"> 
-          <div class="content" bis_skin_checked="1"> 
-           <span class="icon flaticon-museum"></span> 
-           <h4><a href=" /lasight/services-detail.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ley civil</font></font></a></h4> 
-           <a href=" /lasight/services-detail.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" class="theme-btn btn-style-one" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">consultar ahora</font></font></a> 
-          </div> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <!-- Services Block Two --> 
-      <div class="services-block-two col-lg-4 col-md-6 col-sm-12" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="icon-box" bis_skin_checked="1"> 
-         <span class="icon flaticon-gun"></span> 
-        </div> 
-        <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Derecho penal</font></font></h3> 
-        <div class="text" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-         Es un hecho establecido desde hace mucho tiempo que el lector se distraerá con el contenido legible de una página cuando mire.
-        </font></font></div> 
-        <div class="overlay-box" style="background-image: url(images/resource/service-1.jpg);" bis_skin_checked="1"> 
-         <div class="overlay-inner" bis_skin_checked="1"> 
-          <div class="content" bis_skin_checked="1"> 
-           <span class="icon flaticon-gun"></span> 
-           <h4><a href=" /lasight/services-detail.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Derecho penal</font></font></a></h4> 
-           <a href=" /lasight/services-detail.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" class="theme-btn btn-style-one" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">consultar ahora</font></font></a> 
-          </div> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <!-- Services Block Two --> 
-      <div class="services-block-two col-lg-4 col-md-6 col-sm-12" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="icon-box" bis_skin_checked="1"> 
-         <span class="icon flaticon-plan"></span> 
-        </div> 
-        <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Derecho empresarial</font></font></h3> 
-        <div class="text" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-         Es un hecho establecido desde hace mucho tiempo que el lector se distraerá con el contenido legible de una página cuando mire.
-        </font></font></div> 
-        <div class="overlay-box" style="background-image: url(images/resource/service-1.jpg);" bis_skin_checked="1"> 
-         <div class="overlay-inner" bis_skin_checked="1"> 
-          <div class="content" bis_skin_checked="1"> 
-           <span class="icon flaticon-plan"></span> 
-           <h4><a href=" /lasight/services-detail.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Derecho empresarial</font></font></a></h4> 
-           <a href=" /lasight/services-detail.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" class="theme-btn btn-style-one" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">consultar ahora</font></font></a> 
-          </div> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <!-- Services Block Two --> 
-      <div class="services-block-two col-lg-4 col-md-6 col-sm-12" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="icon-box" bis_skin_checked="1"> 
-         <span class="icon flaticon-book"></span> 
-        </div> 
-        <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ley de Educación</font></font></h3> 
-        <div class="text" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-         Es un hecho establecido desde hace mucho tiempo que el lector se distraerá con el contenido legible de una página cuando mire.
-        </font></font></div> 
-        <div class="overlay-box" style="background-image: url(images/resource/service-1.jpg);" bis_skin_checked="1"> 
-         <div class="overlay-inner" bis_skin_checked="1"> 
-          <div class="content" bis_skin_checked="1"> 
-           <span class="icon flaticon-book"></span> 
-           <h4><a href=" /lasight/services-detail.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ley de Educación</font></font></a></h4> 
-           <a href=" /lasight/services-detail.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" class="theme-btn btn-style-one" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">consultar ahora</font></font></a> 
-          </div> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <!-- Services Block Two --> 
-      <div class="services-block-two col-lg-4 col-md-6 col-sm-12" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="icon-box" bis_skin_checked="1"> 
-         <span class="icon flaticon-house-outline"></span> 
-        </div> 
-        <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">derecho inmobiliario</font></font></h3> 
-        <div class="text" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-         Es un hecho establecido desde hace mucho tiempo que el lector se distraerá con el contenido legible de una página cuando mire.
-        </font></font></div> 
-        <div class="overlay-box" style="background-image: url(images/resource/service-1.jpg);" bis_skin_checked="1"> 
-         <div class="overlay-inner" bis_skin_checked="1"> 
-          <div class="content" bis_skin_checked="1"> 
-           <span class="icon flaticon-house-outline"></span> 
-           <h4><a href=" /lasight/services-detail.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">derecho inmobiliario</font></font></a></h4> 
-           <a href=" /lasight/services-detail.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" class="theme-btn btn-style-one" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">consultar ahora</font></font></a> 
-          </div> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-     </div> 
-     <!-- Lower Section --> 
-     <div class="lower-section" bis_skin_checked="1"> 
-      <div class="carousel-box" bis_skin_checked="1"> 
-       <div class="content" bis_skin_checked="1"> 
-        <div class="single-item-carousel owl-carousel owl-theme owl-loaded owl-drag" bis_skin_checked="1"> 
-         <!-- Testimonial Block --> 
-          
-         <!-- Testimonial Block --> 
-          
-         <!-- Testimonial Block --> 
-          
-        <div class="owl-stage-outer owl-height" style="height: 246px;" bis_skin_checked="1"><div class="owl-stage" style="transform: translate3d(-1920px, 0px, 0px); transition: all 0s ease 0s; width: 4480px;" bis_skin_checked="1"><div class="owl-item cloned" style="width: 640px;" bis_skin_checked="1"><div class="testimonial-block" bis_skin_checked="1"> 
-          <div class="inner-box" bis_skin_checked="1"> 
-           <div class="testimonial-content" bis_skin_checked="1"> 
-            <span class="quote-icon flaticon-left-quote"></span> 
-            <div class="text" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             Aenean Tincidunt Id Maurice Id Auctor. </font><font style="vertical-align: inherit;">Donec en comprar lacus. </font><font style="vertical-align: inherit;">No hay dignidad para quien no tiene interdum, quien no lleva finibus. </font><font style="vertical-align: inherit;">Ellos a gho ifndtp, no.
-            </font></font></div> 
-            <!-- Lower Box --> 
-            <div class="lower-box" bis_skin_checked="1"> 
-             <div class="box-inner" bis_skin_checked="1"> 
-              <div class="image" bis_skin_checked="1"> 
-               <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/author-2.jpg" alt=""> 
-              </div> 
-              <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">willem eduardo</font></font></h3> 
-              <div class="designation" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-               Autor de Envato
-              </font></font></div> 
-             </div> 
-            </div> 
-           </div> 
-          </div> 
-         </div></div><div class="owl-item cloned" style="width: 640px;" bis_skin_checked="1"><div class="testimonial-block" bis_skin_checked="1"> 
-          <div class="inner-box" bis_skin_checked="1"> 
-           <div class="testimonial-content" bis_skin_checked="1"> 
-            <span class="quote-icon flaticon-left-quote"></span> 
-            <div class="text" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             Aenean Tincidunt Id Maurice Id Auctor. </font><font style="vertical-align: inherit;">Donec en comprar lacus. </font><font style="vertical-align: inherit;">No hay dignidad para quien no tiene interdum, quien no lleva finibus. </font><font style="vertical-align: inherit;">Ellos a gho ifndtp, no.
-            </font></font></div> 
-            <!-- Lower Box --> 
-            <div class="lower-box" bis_skin_checked="1"> 
-             <div class="box-inner" bis_skin_checked="1"> 
-              <div class="image" bis_skin_checked="1"> 
-               <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/author-2.jpg" alt=""> 
-              </div> 
-              <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">willem eduardo</font></font></h3> 
-              <div class="designation" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-               Autor de Envato
-              </font></font></div> 
-             </div> 
-            </div> 
-           </div> 
-          </div> 
-         </div></div><div class="owl-item animated owl-animated-out fadeOut" style="width: 640px; left: 640px;" bis_skin_checked="1"><div class="testimonial-block" bis_skin_checked="1"> 
-          <div class="inner-box" bis_skin_checked="1"> 
-           <div class="testimonial-content" bis_skin_checked="1"> 
-            <span class="quote-icon flaticon-left-quote"></span> 
-            <div class="text" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             Aenean Tincidunt Id Maurice Id Auctor. </font><font style="vertical-align: inherit;">Donec en comprar lacus. </font><font style="vertical-align: inherit;">No hay dignidad para quien no tiene interdum, quien no lleva finibus. </font><font style="vertical-align: inherit;">Ellos a gho ifndtp, no.
-            </font></font></div> 
-            <!-- Lower Box --> 
-            <div class="lower-box" bis_skin_checked="1"> 
-             <div class="box-inner" bis_skin_checked="1"> 
-              <div class="image" bis_skin_checked="1"> 
-               <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/author-2.jpg" alt=""> 
-              </div> 
-              <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">willem eduardo</font></font></h3> 
-              <div class="designation" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-               Autor de Envato
-              </font></font></div> 
-             </div> 
-            </div> 
-           </div> 
-          </div> 
-         </div></div><div class="owl-item animated owl-animated-in fadeIn active" style="width: 640px;" bis_skin_checked="1"><div class="testimonial-block" bis_skin_checked="1"> 
-          <div class="inner-box" bis_skin_checked="1"> 
-           <div class="testimonial-content" bis_skin_checked="1"> 
-            <span class="quote-icon flaticon-left-quote"></span> 
-            <div class="text" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             Aenean Tincidunt Id Maurice Id Auctor. </font><font style="vertical-align: inherit;">Donec en comprar lacus. </font><font style="vertical-align: inherit;">No hay dignidad para quien no tiene interdum, quien no lleva finibus. </font><font style="vertical-align: inherit;">Ellos a gho ifndtp, no.
-            </font></font></div> 
-            <!-- Lower Box --> 
-            <div class="lower-box" bis_skin_checked="1"> 
-             <div class="box-inner" bis_skin_checked="1"> 
-              <div class="image" bis_skin_checked="1"> 
-               <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/author-2.jpg" alt=""> 
-              </div> 
-              <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">willem eduardo</font></font></h3> 
-              <div class="designation" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-               Autor de Envato
-              </font></font></div> 
-             </div> 
-            </div> 
-           </div> 
-          </div> 
-         </div></div><div class="owl-item" style="width: 640px;" bis_skin_checked="1"><div class="testimonial-block" bis_skin_checked="1"> 
-          <div class="inner-box" bis_skin_checked="1"> 
-           <div class="testimonial-content" bis_skin_checked="1"> 
-            <span class="quote-icon flaticon-left-quote"></span> 
-            <div class="text" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             Aenean Tincidunt Id Maurice Id Auctor. </font><font style="vertical-align: inherit;">Donec en comprar lacus. </font><font style="vertical-align: inherit;">No hay dignidad para quien no tiene interdum, quien no lleva finibus. </font><font style="vertical-align: inherit;">Ellos a gho ifndtp, no.
-            </font></font></div> 
-            <!-- Lower Box --> 
-            <div class="lower-box" bis_skin_checked="1"> 
-             <div class="box-inner" bis_skin_checked="1"> 
-              <div class="image" bis_skin_checked="1"> 
-               <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/author-2.jpg" alt=""> 
-              </div> 
-              <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">willem eduardo</font></font></h3> 
-              <div class="designation" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-               Autor de Envato
-              </font></font></div> 
-             </div> 
-            </div> 
-           </div> 
-          </div> 
-         </div></div><div class="owl-item cloned" style="width: 640px;" bis_skin_checked="1"><div class="testimonial-block" bis_skin_checked="1"> 
-          <div class="inner-box" bis_skin_checked="1"> 
-           <div class="testimonial-content" bis_skin_checked="1"> 
-            <span class="quote-icon flaticon-left-quote"></span> 
-            <div class="text" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             Aenean Tincidunt Id Maurice Id Auctor. </font><font style="vertical-align: inherit;">Donec en comprar lacus. </font><font style="vertical-align: inherit;">No hay dignidad para quien no tiene interdum, quien no lleva finibus. </font><font style="vertical-align: inherit;">Ellos a gho ifndtp, no.
-            </font></font></div> 
-            <!-- Lower Box --> 
-            <div class="lower-box" bis_skin_checked="1"> 
-             <div class="box-inner" bis_skin_checked="1"> 
-              <div class="image" bis_skin_checked="1"> 
-               <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/author-2.jpg" alt=""> 
-              </div> 
-              <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">willem eduardo</font></font></h3> 
-              <div class="designation" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-               Autor de Envato
-              </font></font></div> 
-             </div> 
-            </div> 
-           </div> 
-          </div> 
-         </div></div><div class="owl-item cloned" style="width: 640px;" bis_skin_checked="1"><div class="testimonial-block" bis_skin_checked="1"> 
-          <div class="inner-box" bis_skin_checked="1"> 
-           <div class="testimonial-content" bis_skin_checked="1"> 
-            <span class="quote-icon flaticon-left-quote"></span> 
-            <div class="text" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             Aenean Tincidunt Id Maurice Id Auctor. </font><font style="vertical-align: inherit;">Donec en comprar lacus. </font><font style="vertical-align: inherit;">No hay dignidad para quien no tiene interdum, quien no lleva finibus. </font><font style="vertical-align: inherit;">Ellos a gho ifndtp, no.
-            </font></font></div> 
-            <!-- Lower Box --> 
-            <div class="lower-box" bis_skin_checked="1"> 
-             <div class="box-inner" bis_skin_checked="1"> 
-              <div class="image" bis_skin_checked="1"> 
-               <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/author-2.jpg" alt=""> 
-              </div> 
-              <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">willem eduardo</font></font></h3> 
-              <div class="designation" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-               Autor de Envato
-              </font></font></div> 
-             </div> 
-            </div> 
-           </div> 
-          </div> 
-         </div></div></div></div><div class="owl-nav" bis_skin_checked="1"><div class="owl-prev" bis_skin_checked="1"><span class="fa fa-angle-left"></span></div><div class="owl-next" bis_skin_checked="1"><span class="fa fa-angle-right"></span></div></div><div class="owl-dots" bis_skin_checked="1"><div class="owl-dot" bis_skin_checked="1"><span></span></div><div class="owl-dot active" bis_skin_checked="1"><span></span></div><div class="owl-dot" bis_skin_checked="1"><span></span></div></div></div> 
-       </div> 
-      </div> 
-      <div class="image wow slideInRight animated" data-wow-delay="250ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 250ms; animation-name: slideInRight;" bis_skin_checked="1"> 
-       <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/author-1.png" alt=""> 
-      </div> 
-     </div> 
-    </div> 
-   </section> 
-   <!-- End Services Section Two --> 
-   <!-- Counter Section --> 
-   <section class="counter-section"> 
-    <div class="icon-one wow zoomIn animated" data-wow-delay="250ms" data-wow-duration="1500ms" style="background-image: url(&quot;images/icons/icon-3.png&quot;); visibility: visible; animation-duration: 1500ms; animation-delay: 250ms; animation-name: zoomIn;" bis_skin_checked="1"></div> 
-    <div class="icon-two wow slideInRight animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="background-image: url(&quot;images/icons/icon-4.png&quot;); visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: slideInRight;" bis_skin_checked="1"></div> 
-    <div class="container" bis_skin_checked="1"> 
-     <!-- Title Box --> 
-     <div class="title-box" bis_skin_checked="1"> 
-      <div class="section-title" bis_skin_checked="1"> 
-       <div class="row clearfix" bis_skin_checked="1"> 
-        <div class="column col-lg-6 col-md-12 col-sm-12" bis_skin_checked="1"> 
-         <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-          Hecho de la diversión
-         </font></font></div> 
-         <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nos sentimos muy orgullosos de nuestro </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">gran </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">logro</font></font></span></h3> 
-        </div> 
-        <div class="column col-lg-6 col-md-12 col-sm-12" bis_skin_checked="1"> 
-         <div class="row clearfix" bis_skin_checked="1"> 
-          <div class="col-lg-6 col-md-6 col-sm-12" bis_skin_checked="1"> 
-           <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Aenean Tincidunt Id Mauricio Idología Auctor. </font><font style="vertical-align: inherit;">Donec en comprar lacus. </font><font style="vertical-align: inherit;">No tengo dignidad quis neque interdum.</font></font></p> 
-          </div> 
-          <div class="col-lg-6 col-md-6 col-sm-12" bis_skin_checked="1"> 
-           <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Aenean Tincidunt Id Mauricio Idología Auctor. </font><font style="vertical-align: inherit;">Donec en comprar lacus. </font><font style="vertical-align: inherit;">No tengo dignidad quis neque interdum.</font></font></p> 
-          </div> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-     </div> 
-     <!-- Fact Counter --> 
-     <div class="fact-counter" bis_skin_checked="1"> 
-      <div class="row clearfix" bis_skin_checked="1"> 
-       <!--Column--> 
-       <div class="column counter-column col-lg-3 col-md-6 col-sm-12" bis_skin_checked="1"> 
-        <div class="inner wow fadeInLeft animated" data-wow-delay="0ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInLeft;" bis_skin_checked="1"> 
-         <div class="count-outer count-box counted" bis_skin_checked="1"> 
-          <span class="count-text" data-speed="3000ms" data-stop="1825"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1825</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> + 
-          </font></font><div class="counter-title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-           obras completadas
-          </font></font></div> 
-         </div> 
-        </div> 
-       </div> 
-       <!--Column--> 
-       <div class="column counter-column col-lg-3 col-md-6 col-sm-12" bis_skin_checked="1"> 
-        <div class="inner wow fadeInLeft animated" data-wow-delay="0ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInLeft;" bis_skin_checked="1"> 
-         <div class="count-outer count-box counted" bis_skin_checked="1"> 
-          <span class="count-text" data-speed="2000" data-stop="532"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">532</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> + 
-          </font></font><div class="counter-title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-           Clientes satisfechos
-          </font></font></div> 
-         </div> 
-        </div> 
-       </div> 
-       <!--Column--> 
-       <div class="column counter-column col-lg-3 col-md-6 col-sm-12" bis_skin_checked="1"> 
-        <div class="inner wow fadeInLeft animated" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInLeft;" bis_skin_checked="1"> 
-         <div class="count-outer count-box counted" bis_skin_checked="1"> 
-          <span class="count-text" data-speed="2000" data-stop="69"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">69</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> + 
-          </font></font><div class="counter-title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-           Ganar premios
-          </font></font></div> 
-         </div> 
-        </div> 
-       </div> 
-       <!--Column--> 
-       <div class="column counter-column col-lg-3 col-md-6 col-sm-12" bis_skin_checked="1"> 
-        <div class="inner wow fadeInLeft animated" data-wow-delay="900ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 900ms; animation-name: fadeInLeft;" bis_skin_checked="1"> 
-         <div class="count-outer count-box counted" bis_skin_checked="1"> 
-          <span class="count-text" data-speed="1500" data-stop="32"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">32</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> + 
-          </font></font><div class="counter-title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-           Miembros del equipo
-          </font></font></div> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-     </div> 
-    </div> 
-   </section> 
-   <!-- Team Section --> 
-   <section class="team-section"> 
-    <div class="container" bis_skin_checked="1"> 
-     <!-- Sec Title --> 
-     <div class="section-title light" bis_skin_checked="1"> 
-      <div class="clearfix" bis_skin_checked="1"> 
-       <div class="pull-left" bis_skin_checked="1"> 
-        <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-         Nuestro equipo
-        </font></font></div> 
-        <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nos sentimos muy orgullosos de nuestro </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">gran </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">logro</font></font></span></h3> 
-       </div> 
-       <div class="pull-right" bis_skin_checked="1"> 
-        <div class="text" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-         Aenean Tincidunt Id Mauricio Idología Auctor. </font><font style="vertical-align: inherit;">Donec en comprar lacus. </font><font style="vertical-align: inherit;">Null dig nissimmi quis neque interdum. </font><font style="vertical-align: inherit;">Un hombre de Ohio supuestamente golpeó a su abogado en la cara en la corte el martes al enterarse de que había sido sentenciado.
-        </font></font></div> 
-       </div> 
-      </div> 
-     </div> 
-     <div class="clearfix" bis_skin_checked="1"> 
-      <!-- Team Block --> 
-      <div class="team-block col-lg-3 col-md-6 col-sm-12" bis_skin_checked="1"> 
-       <div class="inner-box wow fadeInUp animated" data-wow-delay="0ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/team-1.jpg" alt=""></a> 
-        </div> 
-        <div class="lower-content" bis_skin_checked="1"> 
-         <h3><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">jonson leo</font></font></a></h3> 
-         <div class="designation" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-          Abogado Civil
-         </font></font></div> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-content" bis_skin_checked="1"> 
-           <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-            Datos de contacto
-           </font></font></div> 
-           <ul class="social-icons"> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-facebook"></span></a></li> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-twitter"></span></a></li> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-pinterest-p"></span></a></li> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-vimeo"></span></a></li> 
-           </ul> 
-          </div> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <!-- Team Block --> 
-      <div class="team-block col-lg-3 col-md-6 col-sm-12" bis_skin_checked="1"> 
-       <div class="inner-box wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 300ms; animation-name: fadeInUp;" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/team-2.jpg" alt=""></a> 
-        </div> 
-        <div class="lower-content" bis_skin_checked="1"> 
-         <h3><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">malina leo</font></font></a></h3> 
-         <div class="designation" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-          Abogado Terrorista
-         </font></font></div> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-content" bis_skin_checked="1"> 
-           <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-            Datos de contacto
-           </font></font></div> 
-           <ul class="social-icons"> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-facebook"></span></a></li> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-twitter"></span></a></li> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-pinterest-p"></span></a></li> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-vimeo"></span></a></li> 
-           </ul> 
-          </div> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <!-- Team Block --> 
-      <div class="team-block col-lg-3 col-md-6 col-sm-12" bis_skin_checked="1"> 
-       <div class="inner-box wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/team-3.jpg" alt=""></a> 
-        </div> 
-        <div class="lower-content" bis_skin_checked="1"> 
-         <h3><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Neobir para</font></font></a></h3> 
-         <div class="designation" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-          Abogado Civil
-         </font></font></div> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-content" bis_skin_checked="1"> 
-           <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-            Datos de contacto
-           </font></font></div> 
-           <ul class="social-icons"> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-facebook"></span></a></li> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-twitter"></span></a></li> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-pinterest-p"></span></a></li> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-vimeo"></span></a></li> 
-           </ul> 
-          </div> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <!-- Team Block --> 
-      <div class="team-block col-lg-3 col-md-6 col-sm-12" bis_skin_checked="1"> 
-       <div class="inner-box wow fadeInUp animated" data-wow-delay="900ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 900ms; animation-name: fadeInUp;" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/team-4.jpg" alt=""></a> 
-        </div> 
-        <div class="lower-content" bis_skin_checked="1"> 
-         <h3><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Neobir para</font></font></a></h3> 
-         <div class="designation" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-          Abogado Penalista
-         </font></font></div> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-content" bis_skin_checked="1"> 
-           <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-            Datos de contacto
-           </font></font></div> 
-           <ul class="social-icons"> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-facebook"></span></a></li> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-twitter"></span></a></li> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-pinterest-p"></span></a></li> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-vimeo"></span></a></li> 
-           </ul> 
-          </div> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-     </div> 
-    </div> 
-   </section> 
-   <!-- End Team Section --> 
-   <!-- Portfolio Section --> 
-   <section class="portfolio-section"> 
-    <div class="container" bis_skin_checked="1"> 
-     <!-- Sec Title --> 
-     <div class="section-title centered" bis_skin_checked="1"> 
-      <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-       portafolio
-      </font></font></div> 
-      <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Echa un vistazo a nuestra cartera que se construye </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">con nuestra </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">experiencia</font></font></span></h3> 
-     </div> 
-    </div> 
-    <!-- Outer Container --> 
-    <div class="outer-container" bis_skin_checked="1"> 
-     <div class="portfolio-carousel owl-carousel owl-theme owl-loaded owl-drag" bis_skin_checked="1"> 
-      <!-- Portfolio Block --> 
-       
-      <!-- Portfolio Block --> 
-       
-      <!-- Portfolio Block --> 
-       
-      <!-- Portfolio Block --> 
-       
-      <!-- Portfolio Block --> 
-       
-      <!-- Portfolio Block --> 
-       
-      <!-- Portfolio Block --> 
-       
-      <!-- Portfolio Block --> 
-       
-      <!-- Portfolio Block --> 
-       
-      <!-- Portfolio Block --> 
-       
-     <div class="owl-stage-outer" bis_skin_checked="1"><div class="owl-stage" style="transform: translate3d(-3995px, 0px, 0px); transition: all 0.7s ease 0s; width: 7264px;" bis_skin_checked="1"><div class="owl-item cloned" style="width: 333.2px; margin-right: 30px;" bis_skin_checked="1"><div class="portfolio-block" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/1.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-inner" bis_skin_checked="1"> 
-           <div class="content" bis_skin_checked="1"> 
-            <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             Derechos humanos
-            </font></font></div> 
-            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">toque mental</font></font></h3> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="overlay-link" bis_skin_checked="1"> 
-          <a href=" /lasight/images/gallery/1.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="gallery-1" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-       </div> 
-      </div></div><div class="owl-item cloned" style="width: 333.2px; margin-right: 30px;" bis_skin_checked="1"><div class="portfolio-block" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/2.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-inner" bis_skin_checked="1"> 
-           <div class="content" bis_skin_checked="1"> 
-            <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             derecho personal
-            </font></font></div> 
-            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Violencia doméstica</font></font></h3> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="overlay-link" bis_skin_checked="1"> 
-          <a href=" /lasight/images/gallery/2.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="gallery-1" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-       </div> 
-      </div></div><div class="owl-item cloned" style="width: 333.2px; margin-right: 30px;" bis_skin_checked="1"><div class="portfolio-block" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/3.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-inner" bis_skin_checked="1"> 
-           <div class="content" bis_skin_checked="1"> 
-            <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             Derechos humanos
-            </font></font></div> 
-            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Matrimonio y Divorcio</font></font></h3> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="overlay-link" bis_skin_checked="1"> 
-          <a href=" /lasight/images/gallery/3.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="gallery-1" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-       </div> 
-      </div></div><div class="owl-item cloned" style="width: 333.2px; margin-right: 30px;" bis_skin_checked="1"><div class="portfolio-block" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/4.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-inner" bis_skin_checked="1"> 
-           <div class="content" bis_skin_checked="1"> 
-            <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             Derechos humanos
-            </font></font></div> 
-            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">toque mental</font></font></h3> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="overlay-link" bis_skin_checked="1"> 
-          <a href=" /lasight/images/gallery/4.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="gallery-1" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-       </div> 
-      </div></div><div class="owl-item cloned" style="width: 333.2px; margin-right: 30px;" bis_skin_checked="1"><div class="portfolio-block" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/5.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-inner" bis_skin_checked="1"> 
-           <div class="content" bis_skin_checked="1"> 
-            <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             derecho personal
-            </font></font></div> 
-            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Violencia física</font></font></h3> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="overlay-link" bis_skin_checked="1"> 
-          <a href=" /lasight/images/gallery/5.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="gallery-1" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-       </div> 
-      </div></div><div class="owl-item" style="width: 333.2px; margin-right: 30px;" bis_skin_checked="1"><div class="portfolio-block" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/1.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-inner" bis_skin_checked="1"> 
-           <div class="content" bis_skin_checked="1"> 
-            <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             Derechos humanos
-            </font></font></div> 
-            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">toque mental</font></font></h3> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="overlay-link" bis_skin_checked="1"> 
-          <a href=" /lasight/images/gallery/1.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="gallery-1" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-       </div> 
-      </div></div><div class="owl-item" style="width: 333.2px; margin-right: 30px;" bis_skin_checked="1"><div class="portfolio-block" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/2.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-inner" bis_skin_checked="1"> 
-           <div class="content" bis_skin_checked="1"> 
-            <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             derecho personal
-            </font></font></div> 
-            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Violencia doméstica</font></font></h3> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="overlay-link" bis_skin_checked="1"> 
-          <a href=" /lasight/images/gallery/2.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="gallery-1" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-       </div> 
-      </div></div><div class="owl-item" style="width: 333.2px; margin-right: 30px;" bis_skin_checked="1"><div class="portfolio-block" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/3.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-inner" bis_skin_checked="1"> 
-           <div class="content" bis_skin_checked="1"> 
-            <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             Derechos humanos
-            </font></font></div> 
-            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Matrimonio y Divorcio</font></font></h3> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="overlay-link" bis_skin_checked="1"> 
-          <a href=" /lasight/images/gallery/3.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="gallery-1" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-       </div> 
-      </div></div><div class="owl-item" style="width: 333.2px; margin-right: 30px;" bis_skin_checked="1"><div class="portfolio-block" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/4.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-inner" bis_skin_checked="1"> 
-           <div class="content" bis_skin_checked="1"> 
-            <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             Derechos humanos
-            </font></font></div> 
-            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">toque mental</font></font></h3> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="overlay-link" bis_skin_checked="1"> 
-          <a href=" /lasight/images/gallery/4.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="gallery-1" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-       </div> 
-      </div></div><div class="owl-item" style="width: 333.2px; margin-right: 30px;" bis_skin_checked="1"><div class="portfolio-block" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/5.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-inner" bis_skin_checked="1"> 
-           <div class="content" bis_skin_checked="1"> 
-            <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             derecho personal
-            </font></font></div> 
-            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Violencia física</font></font></h3> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="overlay-link" bis_skin_checked="1"> 
-          <a href=" /lasight/images/gallery/5.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="gallery-1" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-       </div> 
-      </div></div><div class="owl-item" style="width: 333.2px; margin-right: 30px;" bis_skin_checked="1"><div class="portfolio-block" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/1.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-inner" bis_skin_checked="1"> 
-           <div class="content" bis_skin_checked="1"> 
-            <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             Derechos humanos
-            </font></font></div> 
-            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">toque mental</font></font></h3> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="overlay-link" bis_skin_checked="1"> 
-          <a href=" /lasight/images/gallery/1.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="gallery-1" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-       </div> 
-      </div></div><div class="owl-item active" style="width: 333.2px; margin-right: 30px;" bis_skin_checked="1"><div class="portfolio-block" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/2.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-inner" bis_skin_checked="1"> 
-           <div class="content" bis_skin_checked="1"> 
-            <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             derecho personal
-            </font></font></div> 
-            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Violencia doméstica</font></font></h3> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="overlay-link" bis_skin_checked="1"> 
-          <a href=" /lasight/images/gallery/2.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="gallery-1" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-       </div> 
-      </div></div><div class="owl-item active" style="width: 333.2px; margin-right: 30px;" bis_skin_checked="1"><div class="portfolio-block" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/3.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-inner" bis_skin_checked="1"> 
-           <div class="content" bis_skin_checked="1"> 
-            <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             Derechos humanos
-            </font></font></div> 
-            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Matrimonio y Divorcio</font></font></h3> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="overlay-link" bis_skin_checked="1"> 
-          <a href=" /lasight/images/gallery/3.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="gallery-1" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-       </div> 
-      </div></div><div class="owl-item active" style="width: 333.2px; margin-right: 30px;" bis_skin_checked="1"><div class="portfolio-block" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/4.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-inner" bis_skin_checked="1"> 
-           <div class="content" bis_skin_checked="1"> 
-            <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             Derechos humanos
-            </font></font></div> 
-            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">toque mental</font></font></h3> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="overlay-link" bis_skin_checked="1"> 
-          <a href=" /lasight/images/gallery/4.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="gallery-1" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-       </div> 
-      </div></div><div class="owl-item active" style="width: 333.2px; margin-right: 30px;" bis_skin_checked="1"><div class="portfolio-block" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/5.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-inner" bis_skin_checked="1"> 
-           <div class="content" bis_skin_checked="1"> 
-            <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             derecho personal
-            </font></font></div> 
-            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Violencia física</font></font></h3> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="overlay-link" bis_skin_checked="1"> 
-          <a href=" /lasight/images/gallery/5.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="gallery-1" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-       </div> 
-      </div></div><div class="owl-item cloned active" style="width: 333.2px; margin-right: 30px;" bis_skin_checked="1"><div class="portfolio-block" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/1.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-inner" bis_skin_checked="1"> 
-           <div class="content" bis_skin_checked="1"> 
-            <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             Derechos humanos
-            </font></font></div> 
-            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">toque mental</font></font></h3> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="overlay-link" bis_skin_checked="1"> 
-          <a href=" /lasight/images/gallery/1.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="gallery-1" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-       </div> 
-      </div></div><div class="owl-item cloned" style="width: 333.2px; margin-right: 30px;" bis_skin_checked="1"><div class="portfolio-block" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/2.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-inner" bis_skin_checked="1"> 
-           <div class="content" bis_skin_checked="1"> 
-            <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             derecho personal
-            </font></font></div> 
-            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Violencia doméstica</font></font></h3> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="overlay-link" bis_skin_checked="1"> 
-          <a href=" /lasight/images/gallery/2.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="gallery-1" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-       </div> 
-      </div></div><div class="owl-item cloned" style="width: 333.2px; margin-right: 30px;" bis_skin_checked="1"><div class="portfolio-block" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/3.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-inner" bis_skin_checked="1"> 
-           <div class="content" bis_skin_checked="1"> 
-            <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             Derechos humanos
-            </font></font></div> 
-            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Matrimonio y Divorcio</font></font></h3> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="overlay-link" bis_skin_checked="1"> 
-          <a href=" /lasight/images/gallery/3.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="gallery-1" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-       </div> 
-      </div></div><div class="owl-item cloned" style="width: 333.2px; margin-right: 30px;" bis_skin_checked="1"><div class="portfolio-block" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/4.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-inner" bis_skin_checked="1"> 
-           <div class="content" bis_skin_checked="1"> 
-            <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             Derechos humanos
-            </font></font></div> 
-            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">toque mental</font></font></h3> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="overlay-link" bis_skin_checked="1"> 
-          <a href=" /lasight/images/gallery/4.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="gallery-1" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-       </div> 
-      </div></div><div class="owl-item cloned" style="width: 333.2px; margin-right: 30px;" bis_skin_checked="1"><div class="portfolio-block" bis_skin_checked="1"> 
-       <div class="inner-box" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/5.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <div class="overlay-inner" bis_skin_checked="1"> 
-           <div class="content" bis_skin_checked="1"> 
-            <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-             derecho personal
-            </font></font></div> 
-            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Violencia física</font></font></h3> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="overlay-link" bis_skin_checked="1"> 
-          <a href=" /lasight/images/gallery/5.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="gallery-1" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-       </div> 
-      </div></div></div></div><div class="owl-nav" bis_skin_checked="1"><div class="owl-prev" bis_skin_checked="1"><span class="flaticon-back-7"></span></div><div class="owl-next" bis_skin_checked="1"><span class="flaticon-right-arrow"></span></div></div><div class="owl-dots" bis_skin_checked="1"><div class="owl-dot" bis_skin_checked="1"><span></span></div><div class="owl-dot active" bis_skin_checked="1"><span></span></div></div></div> 
-    </div> 
-   </section> 
-   <!-- End Portfolio Section --> 
-   <!-- Form Section --> 
-   <section class="form-section" style="background-image: url(images/background/2.jpg)"> 
-    <div class="container" bis_skin_checked="1"> 
-     <!-- Upper Content --> 
-     <div class="upper-content" bis_skin_checked="1"> 
-      <div class="row clearfix" bis_skin_checked="1"> 
-       <!-- Title Column --> 
-       <div class="title-column col-lg-5 col-md-12 col-sm-12" bis_skin_checked="1"> 
-        <div class="inner-column" bis_skin_checked="1"> 
-         <!-- Sec Title --> 
-         <div class="section-title light" bis_skin_checked="1"> 
-          <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-           Contáctenos
-          </font></font></div> 
-          <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Siéntase libre de preguntar algo </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">estamos </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">aquí</font></font></span></h3> 
-         </div> 
-        </div> 
-       </div> 
-       <!-- Info Column --> 
-       <div class="info-column col-lg-7 col-md-12 col-sm-12" bis_skin_checked="1"> 
-        <div class="inner-column" bis_skin_checked="1"> 
-         <div class="row clearfix" bis_skin_checked="1"> 
-          <!-- Column --> 
-          <div class="column col-lg-6 col-md-6 col-sm-12" bis_skin_checked="1"> 
-           <ul class="list-style-two"> 
-            <li><span class="icon flaticon-placeholder-1"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">4 G-ral. </font><font style="vertical-align: inherit;">Traian Mosoiu Street, A Building, 2nd Entry, Flat 30, Cluj-Napoca, Rumanía</font></font></li> 
-           </ul> 
-          </div> 
-          <!-- Column --> 
-          <div class="column col-lg-6 col-md-6 col-sm-12" bis_skin_checked="1"> 
-           <ul class="list-style-two"> 
-            <li><span class="icon flaticon-phone-call"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">+012 (3456)</font></font></li> 
-            <li><span class="icon flaticon-chat"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">support@LaSight.com</font></font></li> 
-           </ul> 
-          </div> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-     </div> 
-     <!-- Lower Content --> 
-     <div class="lower-content" bis_skin_checked="1"> 
-      <!-- Default Form --> 
-      <div class="default-form" bis_skin_checked="1"> 
-       <form method="post" action="https://html.themexriver.com/lasight/blog.html"> 
-        <div class="row clearfix" bis_skin_checked="1"> 
-         <div class="form-group col-lg-4 col-md-6 col-sm-12" bis_skin_checked="1"> 
-          <input type="text" name="firstname" value="" placeholder="Nombre de pila." required=""> 
-         </div> 
-         <div class="form-group col-lg-4 col-md-6 col-sm-12" bis_skin_checked="1"> 
-          <input type="text" name="email" value="" placeholder="Apellido." required=""> 
-         </div> 
-         <div class="form-group col-lg-4 col-md-12 col-sm-12" bis_skin_checked="1"> 
-          <input type="text" name="phone" value="" placeholder="Dirección de correo electrónico." required=""> 
-         </div> 
-         <div class="form-group col-lg-12 col-md-12 col-sm-12" bis_skin_checked="1"> 
-          <textarea name="message" placeholder="Escribe..."></textarea> 
-         </div> 
-         <div class="form-group col-lg-12 col-md-12 col-sm-12" bis_skin_checked="1"> 
-          <button type="submit" class="theme-btn btn-style-one"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Enviar</font></font></button> 
-         </div> 
-        </div> 
-       </form> 
-      </div> 
-      <!--End Default Form--> 
-     </div> 
-    </div> 
-   </section> 
-   <!-- End Form Section --> 
-   <!-- News Section --> 
-   <section class="news-section"> 
-    <div class="container" bis_skin_checked="1"> 
-     <!-- Sec Title --> 
-     <div class="section-title" bis_skin_checked="1"> 
-      <div class="clearfix" bis_skin_checked="1"> 
-       <div class="pull-left" bis_skin_checked="1"> 
-        <div class="title" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-         Noticias
-        </font></font></div> 
-        <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Aprende algo más de </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">nuestras últimas </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">noticias</font></font></span></h3> 
-       </div> 
-       <div class="pull-right" bis_skin_checked="1"> 
-        <div class="text" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-         Aenean Tincidunt Id Mauricio Idología Auctor. </font><font style="vertical-align: inherit;">Donec en comprar lacus. </font><font style="vertical-align: inherit;">Null dig nissimmi quis neque interdum. </font><font style="vertical-align: inherit;">Un hombre de Ohio supuestamente golpeó a su abogado en la cara en la corte el martes al enterarse de que había sido sentenciado.
-        </font></font></div> 
-       </div> 
-      </div> 
-     </div> 
-     <div class="row clearfix" bis_skin_checked="1"> 
-      <!-- News Block --> 
-      <div class="news-block col-lg-4 col-md-6 col-sm-12" bis_skin_checked="1"> 
-       <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms" style="visibility: hidden; animation-duration: 1500ms; animation-delay: 0ms; animation-name: none;" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/news-1.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <a href=" /lasight/images/resource/news-1.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="news" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-        <div class="lower-content" bis_skin_checked="1"> 
-         <ul class="post-meta"> 
-          <li><span class="fa fa-calendar"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">12 de septiembre,</font></font></li> 
-          <li><span class="fa fa-user"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Administración</font></font></li> 
-         </ul> 
-         <h5><a href=" /lasight/blog-single.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Estrategia para el Peion Fund Global de Noruega.</font></font></a></h5> 
-         <a href=" /lasight/blog-single.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" class="theme-btn btn-style-two" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ver más</font></font></a> 
-        </div> 
-       </div> 
-      </div> 
-      <!-- News Block --> 
-      <div class="news-block col-lg-4 col-md-6 col-sm-12" bis_skin_checked="1"> 
-       <div class="inner-box wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms" style="visibility: hidden; animation-duration: 1500ms; animation-delay: 300ms; animation-name: none;" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/news-2.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <a href=" /lasight/images/resource/news-2.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="news" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-        <div class="lower-content" bis_skin_checked="1"> 
-         <ul class="post-meta"> 
-          <li><span class="fa fa-calendar"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">12 de septiembre,</font></font></li> 
-          <li><span class="fa fa-user"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Administración</font></font></li> 
-         </ul> 
-         <h5><a href=" /lasight/blog-single.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Lo que somos capaces de hacer por lo general se descubre.</font></font></a></h5> 
-         <a href=" /lasight/blog-single.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" class="theme-btn btn-style-two" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ver más</font></font></a> 
-        </div> 
-       </div> 
-      </div> 
-      <!-- News Block --> 
-      <div class="news-block col-lg-4 col-md-6 col-sm-12" bis_skin_checked="1"> 
-       <div class="inner-box wow fadeInLeft" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: hidden; animation-duration: 1500ms; animation-delay: 600ms; animation-name: none;" bis_skin_checked="1"> 
-        <div class="image" bis_skin_checked="1"> 
-         <img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/news-3.jpg" alt=""> 
-         <div class="overlay-box" bis_skin_checked="1"> 
-          <a href=" /lasight/images/resource/news-3.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" data-fancybox="news" data-caption="" class="plus flaticon-plus" bis_skin_checked="1"></a> 
-         </div> 
-        </div> 
-        <div class="lower-content" bis_skin_checked="1"> 
-         <ul class="post-meta"> 
-          <li><span class="fa fa-calendar"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">12 de septiembre,</font></font></li> 
-          <li><span class="fa fa-user"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Administración</font></font></li> 
-         </ul> 
-         <h5><a href=" /lasight/blog-single.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Los líderes de la industria alimentaria a menudo cambian de promotores.</font></font></a></h5> 
-         <a href=" /lasight/blog-single.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" class="theme-btn btn-style-two" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ver más</font></font></a> 
-        </div> 
-       </div> 
-      </div> 
-     </div> 
-    </div> 
-   </section> 
-   <!-- End News Section --> 
-   <!-- Subscribe Section --> 
-   <section class="subscribe-section"> 
-    <div class="container" bis_skin_checked="1"> 
-     <div class="inner-container" style="background-image: url(images/background/3.jpg)" bis_skin_checked="1"> 
-      <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Suscríbete a tu correo electrónico para recibir boletines </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">y promociones</font></font></h2> 
-      <!-- Subscribe Form --> 
-      <div class="subscribe-form" bis_skin_checked="1"> 
-       <form method="post" action="https://html.themexriver.com/lasight/contact.html"> 
-        <div class="form-group" bis_skin_checked="1"> 
-         <input type="email" name="email" value="" placeholder="Dirección de correo electrónico." required=""> 
-         <button type="submit" class="theme-btn subscribe-btn"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Suscribir</font></font></button> 
-        </div> 
-       </form> 
-      </div> 
-     </div> 
-    </div> 
-   </section> 
-   <!-- End Subscribe Section --> 
-   <!--Main Footer--> 
-   <footer class="main-footer"> 
-    <div class="container" bis_skin_checked="1"> 
-     <!--Widgets Section--> 
-     <div class="widgets-section" bis_skin_checked="1"> 
-      <div class="row clearfix" bis_skin_checked="1"> 
-       <!--Column--> 
-       <div class="big-column col-lg-6 col-md-12 col-sm-12" bis_skin_checked="1"> 
-        <div class="row clearfix" bis_skin_checked="1"> 
-         <!--Footer Column--> 
-         <div class="footer-column col-lg-7 col-md-6 col-sm-12" bis_skin_checked="1"> 
-          <div class="footer-widget logo-widget" bis_skin_checked="1"> 
-           <div class="logo" bis_skin_checked="1"> 
-            <a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/footer-logo.png" alt=""></a> 
-           </div> 
-           <div class="text" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-            Lorem ipsum pain sit amet, consectetur adipiscing elite, sad do eiusmod tempor incididunt.
-           </font></font></div> 
-           <ul class="list-style-three"> 
-            <li><span class="icon fa fa-phone"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">+123 (4567)</font></font></li> 
-            <li><span class="icon fa fa-envelope"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">info@LaSight.com</font></font></li> 
-            <li><span class="icon fa fa-home"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">380 St Kilda Road, Melbourne </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">VIC 3004, Australia</font></font></li> 
-           </ul> 
-          </div> 
-         </div> 
-         <!--Footer Column--> 
-         <div class="footer-column col-lg-5 col-md-6 col-sm-12" bis_skin_checked="1"> 
-          <div class="footer-widget links-widget" bis_skin_checked="1"> 
-           <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Enlaces</font></font></h4> 
-           <ul class="list-link"> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hogar</font></font></a></li> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Servicios</font></font></a></li> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sobre nosotros</font></font></a></li> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Testimonios</font></font></a></li> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Noticias</font></font></a></li> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Contáctenos</font></font></a></li> 
-           </ul> 
-          </div> 
-         </div> 
-        </div> 
-       </div> 
-       <!--Column--> 
-       <div class="big-column col-lg-6 col-md-12 col-sm-12" bis_skin_checked="1"> 
-        <div class="row clearfix" bis_skin_checked="1"> 
-         <!--Footer Column--> 
-         <div class="footer-column col-lg-6 col-md-6 col-sm-12" bis_skin_checked="1"> 
-          <div class="footer-widget links-widget" bis_skin_checked="1"> 
-           <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apoyo</font></font></h4> 
-           <ul class="list-link"> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Contáctenos</font></font></a></li> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Envía un boleto</font></font></a></li> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Visite la base de conocimientos</font></font></a></li> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sistema de apoyo</font></font></a></li> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Politica de reembolso</font></font></a></li> 
-            <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Servicios profesionales</font></font></a></li> 
-           </ul> 
-          </div> 
-         </div> 
-         <!--Footer Column--> 
-         <div class="footer-column col-lg-6 col-md-6 col-sm-12" bis_skin_checked="1"> 
-          <div class="footer-widget gallery-widget" bis_skin_checked="1"> 
-           <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Galería</font></font></h4> 
-           <div class="widget-content" bis_skin_checked="1"> 
-            <div class="images-outer clearfix" bis_skin_checked="1"> 
-             <!--Image Box--> 
-             <figure class="image-box">
-              <a href=" /lasight/images/gallery/1.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" class="lightbox-image" data-fancybox="footer-gallery" title="Título de la imagen aquí" data-fancybox-group="footer-gallery" bis_skin_checked="1"><img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/footer-gallery-thumb-1.jpg" alt=""></a>
-             </figure> 
-             <!--Image Box--> 
-             <figure class="image-box">
-              <a href=" /lasight/images/gallery/2.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" class="lightbox-image" data-fancybox="footer-gallery" title="Título de la imagen aquí" data-fancybox-group="footer-gallery" bis_skin_checked="1"><img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/footer-gallery-thumb-2.jpg" alt=""></a>
-             </figure> 
-             <!--Image Box--> 
-             <figure class="image-box">
-              <a href=" /lasight/images/gallery/3.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" class="lightbox-image" data-fancybox="footer-gallery" title="Título de la imagen aquí" data-fancybox-group="footer-gallery" bis_skin_checked="1"><img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/footer-gallery-thumb-3.jpg" alt=""></a>
-             </figure> 
-             <!--Image Box--> 
-             <figure class="image-box">
-              <a href=" /lasight/images/gallery/4.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" class="lightbox-image" data-fancybox="footer-gallery" title="Título de la imagen aquí" data-fancybox-group="footer-gallery" bis_skin_checked="1"><img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/footer-gallery-thumb-4.jpg" alt=""></a>
-             </figure> 
-             <!--Image Box--> 
-             <figure class="image-box">
-              <a href=" /lasight/images/gallery/5.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" class="lightbox-image" data-fancybox="footer-gallery" title="Título de la imagen aquí" data-fancybox-group="footer-gallery" bis_skin_checked="1"><img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/footer-gallery-thumb-5.jpg" alt=""></a>
-             </figure> 
-             <!--Image Box--> 
-             <figure class="image-box">
-              <a href=" /lasight/images/gallery/6.jpg?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp" class="lightbox-image" data-fancybox="footer-gallery" title="Título de la imagen aquí" data-fancybox-group="footer-gallery" bis_skin_checked="1"><img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/footer-gallery-thumb-6.jpg" alt=""></a>
-             </figure> 
-            </div> 
-           </div> 
-          </div> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-     </div> 
-    </div> 
-    <!-- Footer Bottom --> 
-    <div class="footer-bottom" bis_skin_checked="1"> 
-     <div class="container" bis_skin_checked="1"> 
-      <div class="row clearfix" bis_skin_checked="1"> 
-       <!-- Copyright Column --> 
-       <div class="copyright-column col-lg-6 col-md-6 col-sm-12" bis_skin_checked="1"> 
-        <div class="copyright" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-         2019 © 
-          </font></font><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Temaxriver Todos los derechos reservados</font></font></a>
-        </div> 
-       </div> 
-       <!-- Social Column --> 
-       <div class="social-column col-lg-6 col-md-6 col-sm-12" bis_skin_checked="1"> 
-        <ul> 
-         <li class="follow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Síganos:</font></font></li> 
-         <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-facebook-square"></span></a></li> 
-         <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-twitter-square"></span></a></li> 
-         <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-linkedin-square"></span></a></li> 
-         <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-google-plus-square"></span></a></li> 
-         <li><a href=" /lasight/index.html?_x_tr_sl=auto&amp;_x_tr_tl=es&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp#" bis_skin_checked="1"><span class="fa fa-rss-square"></span></a></li> 
-        </ul> 
-       </div> 
-      </div> 
-     </div> 
-    </div> 
-   </footer> 
-  </div> 
-  <!--End pagewrapper--> 
-  <!--Scroll to top--> 
-  <div class="scroll-to-top scroll-to-target" data-target="html" bis_skin_checked="1" style="display: none;">
-   <span class="fa fa-arrow-circle-up"></span>
-  </div> 
-  <script src="./Plantilla HTML de la Ley LaSight _ Página principal_files/jquery.js.descarga"></script> 
-  <script src="./Plantilla HTML de la Ley LaSight _ Página principal_files/popper.min.js.descarga"></script> 
-  <script src="./Plantilla HTML de la Ley LaSight _ Página principal_files/bootstrap.min.js.descarga"></script> 
-  <script src="./Plantilla HTML de la Ley LaSight _ Página principal_files/jquery.mCustomScrollbar.concat.min.js.descarga"></script> 
-  <script src="./Plantilla HTML de la Ley LaSight _ Página principal_files/jquery.fancybox.js.descarga"></script> 
-  <script src="./Plantilla HTML de la Ley LaSight _ Página principal_files/appear.js.descarga"></script> 
-  <script src="./Plantilla HTML de la Ley LaSight _ Página principal_files/owl.js.descarga"></script> 
-  <script src="./Plantilla HTML de la Ley LaSight _ Página principal_files/wow.js.descarga"></script> 
-  <script src="./Plantilla HTML de la Ley LaSight _ Página principal_files/jquery-ui.js.descarga"></script> 
-  <script src="./Plantilla HTML de la Ley LaSight _ Página principal_files/script.js.descarga"></script>  
-  <script>function gtElInit() {var lib = new google.translate.TranslateService();lib.translatePage('om', 'es', function () {});}</script>
-  <script src="./Plantilla HTML de la Ley LaSight _ Página principal_files/element.js.descarga" type="text/javascript"></script><div id="goog-gt-tt" class="skiptranslate" dir="ltr" bis_skin_checked="1"><div style="padding: 8px;" bis_skin_checked="1"><div bis_skin_checked="1"><div class="logo" bis_skin_checked="1"><img src="./Plantilla HTML de la Ley LaSight _ Página principal_files/translate_24dp.png" width="20" height="20" alt="Google Traductor de Google"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;" bis_skin_checked="1"><h1 class="title gray">Texto original</h1></div><div class="middle" style="padding: 8px;" bis_skin_checked="1"><div class="original-text" bis_skin_checked="1"></div></div><div class="bottom" style="padding: 8px;" bis_skin_checked="1"><div class="activity-links" bis_skin_checked="1"><span class="activity-link">Sugiere una traducción mejor</span><span class="activity-link"></span></div><div class="started-activity-container" bis_skin_checked="1"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root" bis_skin_checked="1"></div></div></div><div class="status-message" style="display: none;" bis_skin_checked="1"></div></div>
- 
-<div class="goog-te-spinner-pos" bis_skin_checked="1"><div class="goog-te-spinner-animation" bis_skin_checked="1"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>
+
+        var e = {
+            _envArray: [],
+            _envTrkrs: (window._envTrkrsCust && window._envTrkrsCust.length) ? window._envTrkrs.concat(window._envTrkrsCust) : window._envTrkrs,
+            init: function() {
+                for (var i=0; i < _envTrkrs.length; i++) {
+                    var name = _envTrkrs[i][0];
+
+                    if (!ga.getByName(name)) {
+                        var accountId = _envTrkrs[i][1];
+
+                        var options = {
+                            name: name,
+                            allowLinker: true,
+                            cookieDomain: "auto",
+                        };
+
+                        if (Market.Helpers.GaLsUtils.localStorageAvailable()) {
+                            if (Market.Helpers.GaLsUtils.clientIdNotPresent()) {
+                                options.clientId = Market.Helpers.GaLsUtils.retrieveClientId();
+                            }
+
+                            ga("create", accountId, options);
+                        } else {
+                            ga("create", accountId, options);
+                        }
+                    }
+                }
+
+                document.addEventListener('DOMContentLoaded', function(){
+                    e.wrapperInit();
+                });
+
+                if (debug) {console.log('Initiated');}
+            },
+            wrapperInit: function() {
+                if (typeof window._envIsRunning != 'undefined' || window._envIsRunning == true) {
+                    return
+                }
+                window._envIsRunning = true;
+
+                if (document.addEventListener) {
+                    document.addEventListener('click', function(event){
+                        var target = event.target;
+                        if (target && target.tagName === 'A') {
+                            e._envLinksTracker(event);
+                        }
+                    });
+                }
+            },
+            isInArray: function(e, t) {
+                for (var n = 0; n < t.length; n++) {
+                    var r = new RegExp(t[n], 'i');
+                    if (r.test(e)) {
+                        return n
+                    }
+                }
+                return -1
+            },
+            _envTrackevent: function(e, t, n, r) {
+                for (var i = 0; i < this._envTrkrs.length; i++) {
+                    var s = this._envTrkrs[i][0].length == 0 ? '' : this._envTrkrs[i][0] + '.';
+                    r.length == 0 ? ga(s + 'send', 'event', e, t, n) : ga(s + 'send', 'event', e, t, n, r)
+                }
+            },
+            _envTrackpageview: function(e, t) {
+                t = t.charAt(0) == '/' ? t : '/' + t;
+                for (var n = 0; n < this._envTrkrs.length; n++) {
+                    var r = this._envTrkrs[n][0].length == 0 ? '' : this._envTrkrs[n][0] + '.';
+                    ga(r + 'send', 'pageview', e + t);
+                }
+            },
+            _envLinksTracker: function(t) {
+                var r = false;
+                var i = {
+                    outbound: {
+                        run: true,
+                        useEvent: true
+                    },
+                    download: {
+                        run: true,
+                        useEvent: true,
+                        reg: ''
+                    },
+                    self: {
+                        run: false,
+                        useEvent: true
+                    },
+                    mail: {
+                        run: true,
+                        useEvent: true
+                    },
+                    ext: /\.(doc.?|xls.?|ppt.?|exe|zip|rar|gz|tar|tgz|dmg|csv|pdf|xpi|txt|mp3)$/i
+                };
+                var s = t.srcElement ? t.srcElement : this;
+                if (t.srcElement) {
+                    r = true
+                }
+                while (s.tagName != 'A') {
+                    s = s.parentNode
+                }
+                if (s.href == undefined || s.href == null) {
+                    return true
+                }
+                var o = s.href;
+                if (o.length == 0) return;
+                var u = s.hostname.toLowerCase();
+                var a = s.pathname;
+                if (a.length == 0) {
+                    a = '/'
+                } else if (a.substr(0, 1) != '/') {
+                    a = '/' + a
+                }
+                var f = s.protocol;
+                var l = s.search;
+                var c = location.hostname;
+                c = c.replace(/^www\./i, '').toLowerCase();
+                u = u.replace(/^www\./i, '').toLowerCase();
+                if (o.match(/^#/)) {
+                    if (i.self.run) {
+                        i.self.useEvent ? e._envTrackevent('self', 'click - ' + c, o, '') : e._envTrackpageview('/virtual/self', '/' + o);
+                        return true
+                    }
+                } else if (f.match(/^mailto:/i)) {
+                    if (i.mail.run) {
+                        o = o.replace(/^mailto:/i, '');
+                        i.mail.useEvent ? e._envTrackevent('mailto', 'click - ' + c, o, '') : e._envTrackpageview('/virtual/mailto', o);
+                        return true
+                    }
+                } else if ((new RegExp(i.ext)).test(a)) {
+                    if (i.download.run) {
+                        o = o.replace(/^https?:\/\//i, '');
+                        i.download.useEvent ? e._envTrackevent('download', 'click - ' + c, o, '') : e._envTrackpageview('/virtual/download', o);
+                        return true
+                    }
+                } else if (u == undefined || u.length == 0 || f.match(/^javascript:/i)) {
+                    return
+                } else if ((new RegExp(c + '$', 'i')).test(u) || (new RegExp(u + '$', 'i')).test(c)) {
+                    if (i.download.run && i.download.reg.length != 0) {
+                        if ((new RegExp(i.download.reg, 'i')).test(a + l)) {
+                            o = o.replace(/^https?:\/\//i, '');
+                            i.download.useEvent ? e._envTrackevent('download', 'click - ' + c, o, '') : e._envTrackpageview('/virtual/download', o);
+                            return true
+                        }
+                    }
+                } else if (u != c) {
+                    if (e.isInArray(u, e._envArray) == -1) {
+                        if (i.outbound.run) {
+                            i.outbound.useEvent ? e._envTrackevent('outbound', 'click - ' + c, u + a + l, '') : e._envTrackpageview('/virtual/outbound', u + a);
+                            return true
+                        }
+                    } else if (e.isInArray(u, e._envArray) != -1) {
+                        var h = s.target;
+                        if (h != null && h == '_blank') {
+                            if ((new RegExp(/_utma=/)).test(l)) {
+                                return true
+                            }
+                            var p = e._envTrkrs[0][0].length == 0 ? '' : _envTrkrs[0][0] + '.';
+                            return true
+                        } else {
+                            return false
+                        }
+                    }
+                }
+            }
+        };
+
+        waitForAnalytics();
+    })()
+  }
+
+//]]>
+</script>
+
+
+
+<script nonce="uoLOR9roIHbTUG45p235PA==">
+//<![CDATA[
+  // Set Datadog custom attributes
+  (function () {
+    if (typeof window.datadog_attributes != 'object')
+      window.datadog_attributes = {}
+    window.datadog_attributes['pageType'] = 'other'
+
+    // Log experiment enrolment
+    var experiment_data_string = "" + "!"
+    window.datadog_attributes['experiments'] = experiment_data_string
+  })()
+
+//]]>
+</script>
+
+  <script nonce="uoLOR9roIHbTUG45p235PA==">
+//<![CDATA[
+    if (typeof Cookiebot !== 'undefined' && Cookiebot.consent && Cookiebot.consent.marketing) {
+      enableGoogleTagManager();
+    } else {
+      window.addEventListener('CookiebotOnAccept', function (e) {
+        if (Cookiebot.consent.marketing) {
+          enableGoogleTagManager();
+        }
+      }, false);
+    }
+
+  function enableGoogleTagManager() {
+    var gtmId = 'GTM-585RXMV';
+    // Google Tag Manager Tracking Code
+    (function(w,d,s,l,i) {
+      w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer',gtmId);
+
+
+    window.addEventListener('load', function() {
+      window.dataLayer.push({
+        event: 'pinterestReady'
+      });
+    });
+  }
+
+//]]>
+</script>
+
+
+</body></html>
